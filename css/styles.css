@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(22, 21, 21);
+    background-color: lightgray;
 }
 
 
@@ -7,6 +7,10 @@ body {
 .navbar-style .nav-link {
     color: white !important; 
     font-size: 30px !important;
+}
+
+.navbar{
+    background-color: rgb(31, 31, 31) !important;
 }
 
 .carousel-item{
@@ -29,13 +33,10 @@ body {
     background-color: rgba(0, 0, 0, 0.795);
     border-radius: 10px;
     bottom: auto; 
-    top: 130px; 
-    left: 1%;
+    top: 200px; 
+    left: 15%;
     right: 15%;
     padding: 15px;
-    margin-left: 60px;
     max-height: 500px;
     overflow-y: auto;
 }
-
-
