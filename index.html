@@ -16,7 +16,7 @@
 <body>
  <main id="inicio"></main>
     <nav class="navbar navbar-expand-sm p-3 bg-secondary navbar-style fixed-top">
-  <div class="container-fluid">
+ <div class="container-fluid">
     <a class="navbar-brand" href="#">VoltZeep</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -96,13 +96,24 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
-</div>  
 
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br> <!--Esto es para probar el a de "inicio" nada más-->
-
-
-<footer>
+<!-- Aquí integre la parte del feedback martín, no se que poner en la parte derecha se me olvidox ddxddx-->
+</div> 
+    <div class="feedback-section">
+        <div class="feedback-container">
+            <h2>Déjanos tu Feedback</h2>
+            <form action="#" method="POST" class="feedback-form">
+                <div class="form-group">
+                    <label for="feedbackMessage">Quejas o Recomendaciones:</label>
+                    <textarea id="feedbackMessage" name="feedbackMessage" 
+                              placeholder="Escribir..." required></textarea>
+                </div>
+                <button type="submit" id="btnEnviar">Enviar</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+<!--y eso, espero tu FEEDBACK xdd-->
     <div class="container-fluid py-5 bg-dark text-center">
         <div class="row">
             <div class="col-4 text-center">
