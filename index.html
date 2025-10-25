@@ -66,7 +66,8 @@
 </div> 
 
 <div id = "marca-1"></div>
-
+<!-- Aquí en las tarjetas cambie el estilo de estas, para que sean más acordes
+ a nuestra página, entero feo si jajaajja.-->
 <div class="big-box-tarjetas">
     <div class="tarjeta">
       <h1>Nosotros</h1>
@@ -94,7 +95,7 @@
       <p>
             Puedes reportar en nuestro sitio web con el numero de serie, y así nos ayudas a mantener un buen servicio!
       </p>      
-      <h2>¿Qué tan lejos puedo moverme?</h2>      
+      <h2>¿Qué tan lejos puedo moverme?</h2>       
       <p>
             Puedes moverte dentro de toda la comuna que esté seleccionada, solo recuerda dejarlo en un buen lugar para 
             que la proxima persona, pueda usarlo y disfrutar igual que tu. Muchas gracias!
@@ -113,38 +114,37 @@
     </div>
 </div>
 
-<!--Ve si puedes arreglar esto visualmente, se ve horrible lo sé. pero Ni idea-->
-
+<!-- Aquí breve cambio para el usuario, tiene como dos significados:
+ 1. Ve literalmente en línea como están los scooters activos
+ 2. Ve los scooters de nuestra empresa que están activos-->
 <div class="box-boton-scooter">
-    <p>Pulsa aquí para ver nuestros scooters</p><a href="scooters.html">Scooters</a>
+    <p>Pulsa aquí para ver nuestros scooters en línea</p><a href="scooters.html">Scooters</a>
 </div>
 
 
-
-
-<!-- Aquí integre la parte del feedback martín, no se que poner en la parte derecha se me olvidox ddxddx-->
- <!--Respuesta: 
- Intenta agregar un div o algo a la derecha, porque es donde tenemos que ir dejando las reseñas. 
- quiza como una lista o no sé. la idea es que cada reseña sea un bloque con lo que escribieron, si es posible
- intenta que sea un color clarito, quizá blanco, y un borde negro marcado, para cada bloque que se agregue con el texto que escribieron
- Y que se vayan almacenando hacia abajo. A y agrega un mini titulo que diga como "Reseñas recientes" no sé xd
-...... Fin de respuesta-->
-
-    <div class="feedback-section">
-        <div class="feedback-container">
-            <h2>Déjanos tu Feedback</h2>
-            <form action="#" method="POST" class="feedback-form">
-                <div class="form-group">
-                    <label for="feedbackMessage">Quejas o Recomendaciones:</label>
-                    <textarea id="feedbackMessage" name="feedbackMessage" 
-                              placeholder="Escribir..." required></textarea>
-                </div>
-                <button type="submit" id="btnEnviar">Enviar</button>
+<div class="feedback-section">
+    <div class="feedback-container">
+        <h2>Déjanos tu Feedback</h2>
+        <form action="#" method="POST" class="feedback-form">
+            <div class="form-group">
+                <label for="feedbackMessage">Reseñas o Recomendaciones:</label>
+                <textarea id="feedbackMessage" name="feedbackMessage" 
+                          placeholder="Escribir..." required></textarea>
+            </div>
+            <!--Aquí el boton para que utilices en JS-->
+            <button type="submit" id="btnEnviar">Enviar</button>
             </form>
-        </div>
     </div>
-    <footer>
-<!--y eso, espero tu FEEDBACK xdd-->
+    
+    <div class="reviews-container">
+        <h3>Reseñas Recientes</h3>
+        <div class="review-list">
+            <!--Dentro de este div estarán los comentarios de los usuarios.
+            Aquí agregas la lista como tal.-->
+            </div>
+    </div>
+</div>
+<footer>
     <div class="container-fluid py-5 bg-dark text-center">
         <div class="row">
             <div class="col-4 text-center">

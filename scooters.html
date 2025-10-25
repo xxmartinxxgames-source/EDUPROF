@@ -11,7 +11,7 @@
 
     <link rel = "stylesheet" href="css/styles.css">
 
-    <title>VoltZeep</title>
+    <title>VoltZeep - Scooters</title>
 
 </head>
 <body>
@@ -38,47 +38,78 @@
     </div>
   </div>
 </nav>
-
-<!--Falta poner el footer pero la idea es aqui hacer todo lo que esta en tu cuaderno. La idea de seleccionar la comuna y 
-que se expanda o habra una pestaña no sé. decise como hacerlo tú, lo dejo a tu elección-->
+<!--Aquí agregué lo que habíamos conversado-->
 <div class="container-fluid cont-1">
     
+    <div class="scooter-selection-container">
+        <h1>Revisa nuestros scooters </h1>
+        <p>Haz clic en la comuna para ver los puntos de recogida y su disponibilidad:</p>
+        <!-- un div con las tarjetas de la comunas -->
+        <div class="comuna-cards-container">
+            <!-- Un div con la tarjeta de una comuna -->
+            <div class="comuna-card" data-comuna="santiago">
+                <img src="img/comunas/SantiagoCentro.jpg" alt="Foto de Santiago Centro"> 
+                <div class="card-overlay">
+                    <h2>Santiago Centro</h2>
+                </div>
+            </div>
+
+            <div class="comuna-card" data-comuna="providencia">
+                <img src="img/comunas/providencia.png" alt="Foto de Providencia">
+                <div class="card-overlay">
+                    <h2>Providencia</h2>
+                </div>
+            </div>
+            
+            <div class="comuna-card" data-comuna="las-condes">
+                <img src="img/comunas/LasCondes.png" alt="Foto de Las Condes">
+                <div class="card-overlay">
+                    <h2>Las Condes</h2>
+                </div>
+            </div>
+
+            <div class="comuna-card" data-comuna="estacion-central">
+                <img src="img/comunas/EstacionCentral.jpg" alt="Foto de Estación Central">
+                <div class="card-overlay">
+                    <h2>Estación Central</h2>
+                </div>
+            </div>
+
+            </div>
+        
+        <div id="comuna-info-display" class="comuna-info-display mt-5">
+            <h3 id="display-title">Selecciona una comuna para comenzar</h3>
+            <div id="scooter-list-content">
+                <p class="text-secondary">Al hacer clic en una comuna, verás la lista de scooters disponibles.</p>
+            </div>
+        </div>
+    </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!--Aquí agregué el footer-->
+<footer>
+    <div class="container-fluid py-5 bg-dark text-center">
+        <div class="row">
+            <div class="col-4 text-center">
+                <p id = "contacto" class = "text-light fs-4 text-start ms-5">Contactos</p>
+                <p class = "text-secondary fs-5 text-start ms-5"><i class="bi bi-envelope"></i> email: xxxxa@gmail.com</p>
+                <p class = "text-secondary fs-5 text-start ms-5"><i class="bi bi-telephone"></i> fono: 9-99999999</p>
+            </div>
+            <div class="col-4 text-start">
+                <p class = "text-light fs-4">Discord</p>
+                <a href = "######" class = "text-decoration-none text-secondary d-flex align-items-center"><i class="bi bi-discord fs-1"></i> <p class = "text-secondary ms-4">Pulse aqui</p></a>
+            </div>
+            <div class="col-4 text-start">
+                <p class = "text-light fs-4 text-start">Nuestras redes sociales</p>
+                <p class = "text-secondary  fs-5 d-flex align-items-center">
+                    <a href = "#####" class = " fs-3"><i class="bi bi-instagram text-secondary"></i></a> 
+                    <a href = "#####" class = "ps-5 fs-3"><i class="bi bi-twitter-x text-secondary"></i> </a>
+                    <a href = "#####" class = "ps-5 fs-3"><i class="bi bi-facebook text-secondary"></i></a>
+                </p>
+            </div>
+        </div>
+        <p class = "text-secondary mt-5 mb-0">Todos los derechos reservados ©2025</p>
+    </div>
+</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
