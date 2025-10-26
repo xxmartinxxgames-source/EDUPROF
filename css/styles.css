@@ -11,11 +11,12 @@ body {
 
 .navbar{
     background-color: rgb(31, 31, 31) !important;
+    padding: 8px !important;
 }
 
 .navbar img{
-    width: 12vh;
-    height: 12vh;
+    width: 15vh;
+    height: 15vh;
 }
 
 
@@ -47,7 +48,6 @@ body {
     display: flex;
     flex-direction: column;
     
-    /* Estilo Oscuro */
     background-color: #222; 
     color: white; 
     
