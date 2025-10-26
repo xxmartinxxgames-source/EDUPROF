@@ -391,21 +391,89 @@ button#btnEnviar:hover {
     }
 }
 
-/* --- Estilos para la Lista de Scooters generada por JS --- 
-Aquí le dije a gemini la idea que tuvimos de la foto del scooter, el estado, el reporte
-etc... Echale un ojo..
-*/
+
+#scooterModal {
+    border: none;
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 90%;
+    width: 900px; 
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    background-color: #222; 
+    color: white;
+}
+        
+#scooterModal::backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+}
+        
+#modalCommuneName {
+    color: #007bff; /* Color azul para destacar el nombre de la comuna */
+}
+        
+/* Estilos del Título del Modal (Corrección) */
+#scooterModal h2 {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700; /* font-bold */
+    margin-bottom: 1rem; /* mb-4 */
+    color: white; /* Aseguramos que el color sea blanco para el tema oscuro */
+}
+
+/* Estilos del Botón de Cerrar (Corrección) */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end; /* flex justify-end */
+    margin-top: 1rem; /* mt-4 */
+}
+        
+.modal-footer button {
+    padding: 0.5rem 1.5rem; /* px-6 py-2 */
+    background-color: #6b7280; /* bg-gray-500 */
+    color: white; /* text-white */
+    font-weight: 600; /* font-semibold */
+    border-radius: 0.5rem; /* rounded-lg */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* transition */
+}
+        
+.modal-footer button:hover {
+    background-color: #4b5563; /* hover:bg-gray-600 */
+}
+
+
+/* --- Estilos para la Lista de Scooters generada por JS --- */
+#scooterCardsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Grid para que se vean bien */
+    gap: 20px;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #2e2e2e; /* Fondo sutil para el contenedor de tarjetas */
+    border-radius: 8px;
+}
 
 .scooter-info-card {
     display: flex;
-    flex-wrap: wrap; /* Permite que los elementos se apilen en móvil */
+    flex-direction: column;
     background-color: #333; /* Fondo oscuro dentro del contenedor de lista */
     border: 1px solid #555;
     border-radius: 6px;
     padding: 15px;
-    margin-bottom: 15px;
-    align-items: center;
     color: white;
+    transition: box-shadow 0.3s;
+}
+        
+.scooter-info-card:hover {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Sombra azul al pasar el ratón */
+}
+
+.scooter-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .scooter-info-card img {
@@ -413,17 +481,15 @@ etc... Echale un ojo..
     height: 100px;
     object-fit: cover;
     border-radius: 4px;
-    margin-right: 20px;
+    margin-right: 15px;
 }
 
 .scooter-details {
     flex-grow: 1; /* Ocupa el espacio central */
-    min-width: 200px; /* Asegura que no se comprima demasiado */
-    margin-bottom: 10px;
 }
 
 .scooter-details h4 {
-    margin-top: 0;
+    margin: 0;
     color: #007bff;
     font-size: 1.2em;
 }
@@ -436,66 +502,73 @@ etc... Echale un ojo..
 /* Estilos de Estado */
 .status {
     font-weight: bold;
-    padding: 2px 8px;
+    padding: 4px 10px;
     border-radius: 4px;
     font-size: 0.9em;
+    display: inline-block;
+    margin-top: 5px;
 }
 
-.status-en-línea {
+.status-Disponible {
     background-color: #28a745; /* Verde */
 }
 
-.status-cargando {
+.status-BateríaBaja {
     background-color: #ffc107; /* Amarillo */
     color: #333;
 }
 
-.status-offline {
+.status-EnUso {
+    background-color: #007bff; /* Azul */
+}
+
+.status-EnMantenimiento {
     background-color: #dc3545; /* Rojo */
 }
 
-/* Sección de Reporte */
-.scooter-report {
+
+/* Sección de Mapa y Reporte (Flex en columna para mejor apilamiento) */
+.scooter-map-report {
     display: flex;
     flex-direction: column;
-    width: 100%; /* Por defecto, ocupa el ancho completo en móvil */
-    max-width: 250px; /* Limita el ancho en escritorio */
-    margin-left: auto;
-    gap: 5px;
+    gap: 15px;
+    width: 100%;
+    margin-top: 15px;
 }
-
-.scooter-report textarea {
-    resize: none;
-    height: 60px;
-    padding: 5px;
-    border-radius: 4px;
-    border: 1px solid #777;
-    background-color: #444;
-    color: white;
-}
-
-.scooter-report .btn {
+        
+.scooter-report button {
     background-color: #dc3545;
     color: white;
     border: none;
-    padding: 8px;
+    padding: 10px;
     border-radius: 4px;
     cursor: pointer;
+    font-weight: bold;
     transition: background-color 0.2s;
 }
 
-.scooter-report .btn:hover {
+.scooter-report button:hover {
     background-color: #c82333;
 }
 
-/* Media Query para escritorio/tablets */
-@media (min-width: 768px) {
-    .scooter-info-card {
-        flex-wrap: nowrap; /* No envuelve en escritorio */
-    }
+.map-container iframe {
+    width: 100%;
+    height: 180px;
+    border-radius: 4px;
+    border: 1px solid #555;
+}
 
-    .scooter-report {
-        width: 250px; /* Ancho fijo en escritorio */
-        margin-left: 20px;
+        /* Media Query para móvil */
+@media (max-width: 768px) {
+    .comuna-card {
+        width: 90%;
+        max-width: 400px;
+    }
+    #scooterModal {
+        width: 95%;
+        padding: 1rem;
+    }
+    #scooterCardsContainer {
+        grid-template-columns: 1fr;
     }
 }
