@@ -27,7 +27,7 @@
           <a class="nav-link active pe-2" aria-current="page" href="#inicio">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link pe-2" href="#marca-1">Info</a>
+          <a class="nav-link pe-2" href="#marca-1">Informacion</a>
         </li>
         <li class="nav-item">
           <a class="nav-link " href="#contacto">Contacto</a>
@@ -66,8 +66,7 @@
 </div> 
 
 <div id = "marca-1"></div>
-<!-- Aquí en las tarjetas cambie el estilo de estas, para que sean más acordes
- a nuestra página, entero feo si jajaajja.-->
+
 <div class="big-box-tarjetas">
     <div class="tarjeta">
       <h1>Nosotros</h1>
@@ -114,11 +113,9 @@
     </div>
 </div>
 
-<!-- Aquí breve cambio para el usuario, tiene como dos significados:
- 1. Ve literalmente en línea como están los scooters activos
- 2. Ve los scooters de nuestra empresa que están activos-->
+
 <div class="box-boton-scooter">
-    <p>Pulsa aquí para ver nuestros scooters en línea</p><a href="scooters.html">Scooters</a>
+    <p>Pulsa aquí para ver nuestros scooters</p><a href="scooters.html">Scooters</a>
 </div>
 
 
@@ -127,26 +124,29 @@
         <h2>Déjanos tu Feedback</h2>
         <form action="#" method="POST" class="feedback-form">
             <div class="form-group">
-                <label for="feedbackMessage">Reseñas o Recomendaciones:</label>
+                <label for="feedbackMessage">Quejas o Recomendaciones:</label>
                 <textarea id="feedbackMessage" name="feedbackMessage" 
                           placeholder="Escribir..." required></textarea>
             </div>
-            <!--Aquí el boton para que utilices en JS-->
             <button type="submit" id="btnEnviar">Enviar</button>
             </form>
     </div>
-    
+
     <div class="reviews-container">
         <h3>Reseñas Recientes</h3>
-        <div class="review-list">
-            <!--Dentro de este div estarán los comentarios de los usuarios.
-            Aquí agregas la lista como tal.-->
-
-            <!--
-              RESPUESTA: Mmmm está bien pero recuerda que la idea era que un cuadrado, contuviera 1 reseña. Al enviar otra reseña
-              se crea otro cuadrado, con la otra reseña, abajo del mismo. Ahora tenemos nada más un cuadrado blanco... a eso voy xd
-            -->
-            </div>
+        <ul class="review-list">
+            <!-- Aquí un ejemplo de reseñas que me dio gemini, borralas si quieres xddx-->
+            <li class="review-block">
+                <p class="review-meta"><strong>Usuario Anónimo</strong> · 25/10/2025</p>
+                <p class="review-text">¡Excelente servicio! Pude llegar al trabajo sin problemas y el scooter estaba en perfectas condiciones.</p>
+            </li>
+            
+            <li class="review-block">
+                <p class="review-meta"><strong>Usuario 77B</strong> · 24/10/2025</p>
+                <p class="review-text">Recomiendo que agreguen más puntos de carga en la comuna de Providencia. Por lo demás, la app funciona muy bien.</p>
+            </li>
+            
+            </ul>
     </div>
 </div>
 <footer>
