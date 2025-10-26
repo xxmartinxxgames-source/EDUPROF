@@ -9,42 +9,36 @@
 <body>
     
     <!-- fabricar aqui las tarjetas -->
-
-<div class="scooter-section">
-    <ul class="scooters">
-
-        <li class="scooter">
-            <div class="tarjeta-scooter">
-
-                <div class="tarjeta-header">  
-                    <div class="scooter-img">
-                        <img src="img/scooter-voltzeep.png">
-                    </div>
-                    <div class="num-serie">
-                        <strong>N°096</strong>
-                    </div>    
-                    <div class="reporte">
-                        <button class="btn-reportar" type="submit">Reportar</button>
-                    </div>   
-                </div> 
+<div class="scooter-section">        
+            <div class="scooter-img-container">
+                <img src="img/scooter-voltzeep.png" alt="Imagen del scooter N°096">
+            </div>
             
-                <div class="info-estado"> 
-                    <div class="ubicacion-scooter">
-                        <iframe src=""></iframe>
-                    </div>
+            <div class="info-vertical"> 
+                <div class="num-serie">
+                    <strong>N°096</strong>
+                </div> 
+                <div class="reporte">
+                    <button type="submit" class="btn-reportar">Reportar</button>
+                </div> 
+            </div>
+
+            <div class="info-estado"> 
+
+                
+                <div class="estado-bateria">
                     <div class="estado-scooter">
-                        <p>🟢 Activo</p>
+                        <p class="status status-en-línea">🟢 Activo</p>
                     </div>
                     <div class="bateria-scooter">
-                        <p>🔋 50%</p>
+                        <p class="status status-cargando">🔋 50%</p>
                     </div>
                 </div>
-
+                    <div class="ubicacion-scooter">
+                    <iframe src="" title="Mapa de ubicación del scooter N°096"></iframe>
+                </div>
             </div>
-        </li>
-    </ul>
 </div>
-
 
 
 </body>
