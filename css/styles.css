@@ -371,7 +371,6 @@ button#btnEnviar:hover {
 }
 
 
-/* --- Media Queries --- */
 @media (max-width: 768px) {
     .comuna-card {
         width: 90%;
@@ -382,45 +381,36 @@ button#btnEnviar:hover {
 
 /* A partir de aqui crear estilos para las tarjetas */
 
-/* --- Estilos para la Tarjeta Individual de Scooter (Diseño Horizontal) --- */
-
-/* --- Estilos para la Tarjeta Individual de Scooter (Diseño Horizontal Equilibrado) --- */
+/* ===================================================
+   TARJETA DE SCOOTER (Diseño Horizontal Cuatro Columnas)
+   =================================================== */
 
 .scooter-section {
     padding: 20px;
     background-color: #1f1f1f;
 }
 
-.scooters {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 25px;
-    justify-content: center;
-}
-
-/* Contenedor Principal de la Tarjeta (Ahora con 3 columnas principales) */
+/* Contenedor Principal de la Tarjeta (Ahora con 4 columnas uniformes) */
 .scooter-info-card {
     background-color: #222;
     border: 1px solid #444;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     color: white;
-    width: 800px; /* Aumentamos el ancho total para el espacio extra */
+    width: 800px; 
     max-width: 95%; 
     
-    display: flex;
+    display: flex; /* Habilita el diseño horizontal */
     flex-direction: row; 
     min-height: 250px; 
     overflow: hidden;
+    margin: 20px auto; 
 }
 
-/* --- SECCIÓN 1: Contenedor de la Imagen (Aproximadamente 30%) --- */
+/* --- SECCIÓN 1: Contenedor de la Imagen (25%) --- */
 .scooter-img-container {
-    width: 30%; /* Le damos más espacio a la imagen */
-    min-width: 200px;
+    width: 25%; /* 1 de 4 partes */
+    min-width: 180px; /* Ancho mínimo para que se vea bien en pantallas intermedias */
     height: 100%;
     overflow: hidden;
     position: relative;
@@ -433,14 +423,14 @@ button#btnEnviar:hover {
     display: block;
 }
 
-/* --- SECCIÓN 2: N° de Serie y Botón (Información Vertical, Aproximadamente 20%) --- */
+/* --- SECCIÓN 2: N° de Serie y Botón (25%) --- */
 .info-vertical {
-    width: 20%; 
+    width: 25%; /* 1 de 4 partes */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 15px;
-    background-color: #2b2b2b; /* Fondo sutil para separar de la imagen */
+    background-color: #2b2b2b;
     border-right: 1px solid #333;
 }
 
@@ -454,7 +444,6 @@ button#btnEnviar:hover {
     color: #007bff;
 }
 
-/* Botón Reportar */
 .reporte {
     width: 100%;
     text-align: center;
@@ -469,7 +458,7 @@ button#btnEnviar:hover {
     cursor: pointer;
     font-weight: 600;
     transition: background-color 0.2s;
-    width: 100%; /* Ocupa el ancho completo de su contenedor */
+    width: 100%; 
 }
 
 .reporte .btn-reportar:hover {
@@ -477,63 +466,76 @@ button#btnEnviar:hover {
 }
 
 
-/* --- SECCIÓN 3: Mapa, Estado y Batería (Info Estado, Aproximadamente 50%) --- */
-.info-estado {
-    flex-grow: 1; /* Ocupa el espacio restante (aprox 50%) */
-    display: flex;
-    padding: 15px;
-    gap: 15px;
-}
-
-/* Contenedor vertical para Estado y Batería (lado izquierdo de esta sección) */
-.estado-bateria {
-    width: 30%; /* Ocupa un tercio de la info-estado */
+/* --- SECCIÓN 3: Estado y Batería (25%) --- */
+/* Cambiamos el nombre del contenedor a .info-estado si ya no contiene el mapa en el HTML */
+.info-estado { 
+    width: 25%; /* 1 de 4 partes */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 15px;
+    gap: 15px; /* Espacio entre Estado y Batería */
+    border-right: 1px solid #333;
 }
 
-/* Ubicación (iframe) a la derecha (ocupa la mayor parte de esta sección) */
+/* Nota: Los contenedores internos .estado-scooter y .bateria-scooter se ajustan verticalmente dentro de .info-estado */
+
+
+/* --- SECCIÓN 4: Contenedor del Mapa (25%) --- */
 .ubicacion-scooter {
-    width: 70%; /* Ocupa los dos tercios restantes */
+    width: 25%; /* 1 de 4 partes */
     height: 100%;
+    padding: 15px;
     border-radius: 4px;
     overflow: hidden;
-    border: 1px solid #555;
 }
 
 .ubicacion-scooter iframe {
     width: 100%;
     height: 100%;
-    border: none;
+    border: 1px solid #555; /* Le damos un borde para que se note el contenedor del mapa */
+    border-radius: 4px;
 }
 
 
-/* Estilos de Estado y Batería */
+/* --- ESTILOS DE ESTADO Y BATERÍA (Colores) --- */
+
 .estado-scooter,
 .bateria-scooter {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: 10px 0; /* Ajustamos padding para dar espacio vertical */
     border-radius: 5px;
     font-size: 1em;
     font-weight: 600;
-    height: 45%; 
+    /* Quitamos el height: 45% para que Flexbox los distribuya uniformemente */
+    flex-grow: 1; 
 }
 
-.estado-scooter .status {
-    background-color: #28a745;
+.status {
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin: 0; 
+}
+
+/* 🟢 Activo (Verde) */
+.status-en-línea {
+    background-color: #28a745; 
     color: white;
-    padding: 5px 10px;
-    border-radius: 4px;
 }
 
-.bateria-scooter .status {
-    background-color: #ffc107;
+/* 🔋 Batería Media/Cargando (Amarillo) */
+.status-cargando {
+    background-color: #ffc107; 
     color: #333;
-    padding: 5px 10px;
-    border-radius: 4px;
+}
+
+/* 🔴 Offline/Batería Baja (Rojo) */
+.status-offline {
+    background-color: #dc3545;
+    color: white;
 }
 
 .estado-scooter p, 
@@ -542,30 +544,38 @@ button#btnEnviar:hover {
 }
 
 
-/* --- Media Query para Móviles (Se mantiene la disposición vertical) --- */
+/* ===================================================
+   MEDIA QUERIES (Responsividad)
+   =================================================== */
+
 @media (max-width: 768px) {
+    /* Tarjeta Scooter: Cambia a vertical (4 filas) */
     .scooter-info-card {
         flex-direction: column; 
         width: 95%;
+        min-height: auto;
     }
     
-    /* El orden se convierte: Imagen > N°/Botón > Mapa > Estado/Batería */
-    
+    /* Todas las secciones ocupan el ancho completo en móvil */
     .scooter-img-container,
-    .info-vertical {
-        width: 100%; /* Ocupa el ancho completo */
+    .info-vertical,
+    .info-estado,
+    .ubicacion-scooter {
+        width: 100%;
         min-width: auto;
+        border-right: none;
+        padding: 15px;
     }
-
+    
     .scooter-img-container {
         height: 200px;
     }
 
+    /* Info Vertical (N° Serie y Botón) se ponen en fila */
     .info-vertical {
-        flex-direction: row; /* Pone el N° y el Botón lado a lado */
+        flex-direction: row; 
         justify-content: space-between;
         align-items: center;
-        border-right: none;
         border-bottom: 1px solid #333;
     }
     
@@ -576,28 +586,13 @@ button#btnEnviar:hover {
     .reporte {
         width: auto;
     }
-    
-    .reporte .btn-reportar {
-        width: auto;
-    }
 
+    /* Info Estado (Estado y Batería) se ponen en fila */
     .info-estado {
-        flex-direction: column; 
-        width: 100%;
-        padding: 15px;
-        gap: 10px;
-    }
-
-    .ubicacion-scooter {
-        width: 100%;
-        height: 200px;
-    }
-
-    .estado-bateria {
-        width: 100%;
         flex-direction: row; 
-        height: auto;
+        justify-content: space-between;
         gap: 15px;
+        border-bottom: 1px solid #333;
     }
 
     .estado-scooter,
@@ -605,5 +600,10 @@ button#btnEnviar:hover {
         width: 50%;
         height: auto;
         padding: 15px 10px;
+    }
+
+    /* Mapa */
+    .ubicacion-scooter {
+        height: 200px;
     }
 }
