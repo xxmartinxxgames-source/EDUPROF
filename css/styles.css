@@ -381,3 +381,7 @@ button#btnEnviar:hover {
 
 
 /* A partir de aqui crear estilos para las tarjetas */
+
+.scooter-section {
+    background-color: #444;
+}
