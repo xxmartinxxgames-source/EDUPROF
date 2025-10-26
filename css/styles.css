@@ -253,6 +253,22 @@ button#btnEnviar:hover {
     margin: 0;
 }
 
+@media (min-width: 992px) {
+    .feedback-section {
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 80px 10%;
+        align-items: stretch; 
+    }
+
+    .feedback-container,
+    .reviews-container {
+        width: 45%;
+        max-width: none;
+        margin: 0;
+    }
+}
+
 /* --- Estilos para la página scooters.html --- */
 .cont-1 {
     padding-top: 150px;
@@ -354,98 +370,6 @@ button#btnEnviar:hover {
     text-align: center;
 }
 
-/* --- ESTILOS DE LISTA DE SCOOTERS --- */
-.scooter-info-card {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: #333;
-    border: 1px solid #555;
-    border-radius: 6px;
-    padding: 15px;
-    margin-bottom: 15px;
-    align-items: center;
-    color: white;
-}
-
-.scooter-info-card img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 4px;
-    margin-right: 20px;
-}
-
-.scooter-details {
-    flex-grow: 1;
-    min-width: 200px;
-    margin-bottom: 10px;
-}
-
-.scooter-details h4 {
-    margin-top: 0;
-    color: #007bff;
-    font-size: 1.2em;
-}
-
-.scooter-details p {
-    margin: 3px 0;
-    color: #eee;
-}
-
-/* Estilos de Estado */
-.status {
-    font-weight: bold;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 0.9em;
-}
-
-.status-en-línea {
-    background-color: #28a745;
-}
-
-.status-cargando {
-    background-color: #ffc107;
-    color: #333;
-}
-
-.status-offline {
-    background-color: #dc3545;
-}
-
-/* Sección de Reporte */
-.scooter-report {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 250px;
-    margin-left: auto;
-    gap: 5px;
-}
-
-.scooter-report textarea {
-    resize: none;
-    height: 60px;
-    padding: 5px;
-    border-radius: 4px;
-    border: 1px solid #777;
-    background-color: #444;
-    color: white;
-}
-
-.scooter-report .btn {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 8px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.scooter-report .btn:hover {
-    background-color: #c82333;
-}
 
 /* --- Media Queries --- */
 @media (max-width: 768px) {
@@ -455,46 +379,5 @@ button#btnEnviar:hover {
     }
 }
 
-@media (max-width: 630px) {
-    .tarjeta{
-        width: 85%;
-        min-width: 300px;
-    }
-    .tarjeta h1{
-        font-size: 26px;
-    }
-}
 
-@media (min-width: 631px) and (max-width: 1028px){
-    .tarjeta{
-        width: 45%;
-        min-width: 250px;
-    }
-}
-
-@media (min-width: 768px) {
-    .scooter-info-card {
-        flex-wrap: nowrap; 
-    }
-
-    .scooter-report {
-        width: 250px; 
-        margin-left: 20px;
-    }
-}
-
-@media (min-width: 992px) {
-    .feedback-section {
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 80px 10%;
-        align-items: stretch; 
-    }
-
-    .feedback-container,
-    .reviews-container {
-        width: 45%;
-        max-width: none;
-        margin: 0;
-    }
-}
+/* A partir de aqui crear estilos para las tarjetas */
