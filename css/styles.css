@@ -157,9 +157,24 @@ body {
     font-size: 1.1em;
 }
 
+/* Estilo del input de Nombre de Usuario */
+.feedback-form input[type="text"] {
+     width: 100%;
+     padding: 10px 15px;
+     border: 1px solid #555;
+     border-radius: 5px;
+     background-color: #333; /* Fondo oscuro */
+     color: #fff; /* Texto blanco */
+     font-size: 1em;
+    box-sizing: border-box;
+}
+
+.feedback-form input[type="text"]::placeholder {
+     color: #bbb;
+}
 textarea#feedbackMessage {
     width: 100%;
-    padding: 15px;
+    padding: 15px;  
     border: 1px solid #555;
     border-radius: 5px;
     background-color: #333; 
@@ -214,7 +229,7 @@ button#btnEnviar:hover {
     overflow-y: auto; 
     padding: 15px;
     padding-right: 5px; 
-    background-color: #ddd; 
+    background-color: #333; 
     border-radius: 8px;
     border: 1px solid #444;
     width: 100%; 
@@ -224,15 +239,14 @@ button#btnEnviar:hover {
     padding-left: 15px; 
 }
 
-/* Ajuste de separación aplicado aquí */
 .review-block {
     background-color: transparent; 
     border: none;
     box-shadow: none;
     padding: 0; 
     margin-bottom: 25px;
-    border-bottom: 1px solid #bbb; 
-    padding-bottom: 15px;
+    border-bottom: 1px solid #555; 
+     padding-bottom: 15px;
 }
 
 .review-block:last-child {
@@ -242,15 +256,20 @@ button#btnEnviar:hover {
 }
 
 .review-block .review-meta {
-    color: #555;
+    color: #aaa;
     font-size: 0.9em;
-    margin-bottom: 5px;
+     margin-bottom: 5px;
 }
 
 .review-block .review-text {
-    color: #333;
+    color: #eee; 
     font-size: 1em;
     margin: 0;
+}
+
+.review-block .review-meta .review-date {
+     color: #007bff;
+     font-weight: bold;
 }
 
 @media (min-width: 992px) {
@@ -269,7 +288,6 @@ button#btnEnviar:hover {
     }
 }
 
-/* --- Estilos para la página scooters.html --- */
 .cont-1 {
     padding-top: 150px;
     min-height: 80vh;
@@ -349,7 +367,6 @@ button#btnEnviar:hover {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-/* --- Contenedor de la Información/Lista de Scooters --- */
 .comuna-info-display {
     border: 1px solid #444;
     border-radius: 8px;
@@ -378,14 +395,6 @@ button#btnEnviar:hover {
     }
 }
 
-
-/* A partir de aqui crear estilos para las tarjetas */
-
-/* ===================================================
-   TARJETA DE SCOOTER (Diseño Horizontal Cuatro Columnas - FINAL)
-   =================================================== */
-
-/* Contenedor Principal de la Tarjeta */
 .scooter-info-card {
     background-color: #2b2b2b; 
     border: 1px solid #444;
@@ -394,7 +403,6 @@ button#btnEnviar:hover {
     color: white;
     width: 800px; 
     max-width: 95%; 
-    
     display: flex; 
     flex-direction: row; 
     min-height: 250px; 
@@ -403,18 +411,14 @@ button#btnEnviar:hover {
     padding: 0;
 }
 
-/* --- SECCIÓN 1: Contenedor de la Imagen (25%) --- */
 .scooter-img-container {
     width: 25%; 
     min-width: 180px;
     border-radius: 5px;
-    /* Padding para centrado visual */
-    padding: 23px; 
+    padding: 15px; 
     
     overflow: hidden;
     position: relative;
-    
-    /* Alineación de la imagen: Centrado vertical y horizontal */
     display: flex;
     align-items: center; 
     justify-content: center; 
@@ -427,21 +431,16 @@ button#btnEnviar:hover {
     max-height: 100%; 
     object-fit: contain; 
     display: block;
+    border-radius: 4px;
 }
 
-/* --- SECCIÓN 2: N° de Serie y Botón (25%) --- */
 .info-vertical {
     flex-direction: column;
-    
-    /* Mantenemos padding horizontal y vertical estándar */
     padding: 15px;
     width: 25%;
     background-color: #2b2b2b;
-    
-    /* AJUSTE BOTÓN: Menos padding inferior para que el botón suba */
     padding-bottom: 5px; 
-
-        display: flex;
+    display: flex;
     justify-content: space-between;
 }
 
@@ -449,8 +448,6 @@ button#btnEnviar:hover {
     font-size: 1.5em;
     color: white;
     text-align: center;
-    
-    /* AJUSTE: Añadimos más margen inferior para separar del botón/contenedores */
     margin-bottom: 40px; 
     margin-top: 5px; 
 }
@@ -462,9 +459,7 @@ button#btnEnviar:hover {
 .reporte {
     width: 100%;
     text-align: center;
-    
-    /* CRÍTICO: Añadimos un padding al contenedor del botón para centrarlo verticalmente */
-    padding-bottom: 27px; 
+    padding-bottom: 35px; 
 }
 
 .reporte .btn-reportar {
@@ -483,27 +478,19 @@ button#btnEnviar:hover {
     background-color: #c82333;
 }
 
-
-/* --- SECCIÓN 3: Estado y Batería (25%) --- */
 .info-estado { 
-    width: 15%;
+    width: 25%;
     display: flex;
     flex-direction: column;
-    
-    /* Usamos space-evenly para la distribución vertical */
-    padding: 15px;
+    padding: 25px;
     border-right: 1px solid #333;
     background-color: #2b2b2b; 
     font-size: 12px;
 }
 
-/* CORRECCIÓN FINAL: Los bloques deben usar el 100% del ancho de su columna */
 .estado-scooter,
 .bateria-scooter {
-    /* CRÍTICO: Ocupan el 100% del ancho del .info-estado */
     width: 100%; 
-    
-    /* Mantenemos la paridad vertical al ser distribuidos con space-evenly */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -511,18 +498,16 @@ button#btnEnviar:hover {
     border-radius: 5px;
     font-size: 12px;
     font-weight: 600;
-    
     flex-grow: 0; 
     margin: 0; 
 }
 
 .status {
-    /* Quitamos el padding horizontal extra y dejamos que el width: 100% haga el trabajo */
     padding: 10px 0; 
     border-radius: 4px;
     font-weight: bold;
     margin: 0; 
-    width: 100%; /* Forzamos al div interno a usar el 100% del ancho */
+    width: 100%; 
     text-align: center;
 }
 
@@ -551,18 +536,12 @@ button#btnEnviar:hover {
     color: #333;
 }
 
-/* --- SECCIÓN 4: Contenedor del Mapa (25%) --- */
 .ubicacion-scooter {
     width: 25%;
-    
-    /* Padding para centrado visual */
     padding: 15px; 
-    
-    /* Centrado vertical del iframe */
     display: flex;
     align-items: center;
     justify-content: center;
-    
     background-color: #2b2b2b;
 }
 
@@ -575,12 +554,8 @@ button#btnEnviar:hover {
 }
 
 
-/* ===================================================
-   MEDIA QUERIES (Responsividad)
-   =================================================== */
 
 @media (max-width: 768px) {
-    /* Secciones de la tarjeta en móvil */
     .scooter-info-card {
         flex-direction: column; 
         width: 95%;
@@ -638,7 +613,7 @@ button#btnEnviar:hover {
     }
     
     .status {
-        width: auto; /* Dejamos que el contenido decida el ancho en móvil */
+        width: auto; 
     }
 
     .ubicacion-scooter {
@@ -647,5 +622,85 @@ button#btnEnviar:hover {
     
     .ubicacion-scooter iframe {
         min-height: 150px;
+    }
+}
+
+#scooterModal {
+    background-color: #2b2b2b; 
+    color: white;
+    border: 1px solid #444;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+    width: 900px; 
+    max-width: 90%; 
+    padding: 30px;
+}
+
+#scooterModal::backdrop {
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px); 
+}
+
+#scooterModal h2 {
+    font-size: 1.8em;
+    color: #007bff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+#contenedor-tarjetas {
+
+    display: flex;
+    flex-direction: column; 
+    gap: 15px;
+    max-height: 60vh; 
+    overflow-y: auto; 
+    padding-right: 10px; 
+}
+
+.footer-modal {
+    text-align: right;
+    padding-top: 20px;
+}
+
+.footer-modal button {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.footer-modal button:hover {
+    background-color: #444;
+    border-color: #777;
+}
+
+
+@media (max-width: 768px) {
+    #scooterModal {
+        width: 95%; 
+        padding: 15px;
+        max-height: 85vh; 
+    }
+    
+    #scooterModal h2 {
+        font-size: 1.5em;
+    }
+    
+    #contenedor-tarjetas {
+        max-height: 70vh;
+    }
+    
+    .footer-modal {
+        text-align: center;
+    }
+    
+    .footer-modal button {
+        width: 100%;
     }
 }

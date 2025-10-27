@@ -27,7 +27,7 @@
           <a class="nav-link active pe-2" aria-current="page" href="#inicio">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link pe-2" href="#marca-1">Informacion</a>
+          <a class="nav-link pe-2" href="#marca-1">Info</a>
         </li>
         <li class="nav-item">
           <a class="nav-link " href="#contacto">Contacto</a>
@@ -123,44 +123,47 @@
     <div class="feedback-container">
         <h2>Déjanos tu Feedback</h2>
         <form action="#" method="POST" class="feedback-form">
-            <div class="form-group">
-                <label for="feedbackMessage">Quejas o Recomendaciones:</label>
-                <textarea id="feedbackMessage" name="feedbackMessage" 
-                          placeholder="Escribir..." required></textarea>
-            </div>
-            <button type="submit" id="btnEnviar">Enviar</button>
-            </form>
-    </div>
+    <div class="form-group">
+      <label for="userName">Nombre de Usuario:</label>
+        <input type="text" id="userName" name="userName" placeholder="Anónimo" required>
+</div>
 
-    <div class="reviews-container">
-        <h3>Reseñas Recientes</h3>
+<div class="form-group">
+    <label for="feedbackMessage">Quejas o Recomendaciones:</label>
+        <textarea id="feedbackMessage" name="feedbackMessage" placeholder="Escribir..." required></textarea>
+</div>
+    <button type="submit" id="btnEnviar">Enviar</button>
+</form>
+</div>
+
+<div class="reviews-container">
+    <h3>Reseñas Recientes</h3>
         <ul class="review-list">
-            <!-- reseñas de ejemplo-->
             <li class="review-block">
-                <p class="review-meta"><strong>Usuario Anónimo</strong> · 25/10/2025</p>
+                <p class="review-meta"><strong>Usuario Anónimo</strong> · <span class="review-date">26/10/2025</span></p>
                 <p class="review-text">¡Excelente servicio! Pude llegar al trabajo sin problemas y el scooter estaba en perfectas condiciones.</p>
             </li>
-            
+
             <li class="review-block">
-                <p class="review-meta"><strong>Usuario 77B</strong> · 24/10/2025</p>
-                <p class="review-text">Recomiendo que agreguen más puntos de carga en la comuna de Providencia. Por lo demás, la app funciona muy bien.</p>
-            </li>
-            
-            <li class="review-block">
-                <p class="review-meta"><strong>mrxdhi</strong> · 26/10/2025</p>
-                <p class="review-text">Es una mierda de página, pobre bdd que guarda su porquería</p>
+                  <p class="review-meta"><strong>Usuario 77B</strong> · <span class="review-date">26/10/2025</span></p>
+                  <p class="review-text">Recomiendo que agreguen más puntos de carga en la comuna de Providencia. Por lo demás, la app funciona muy bien.</p>
             </li>
 
             <li class="review-block">
-                <p class="review-meta"><strong>brunsmeier_</strong> · 26/10/2025</p>
-                <p class="review-text">me gusta la estetica </p>
+                  <p class="review-meta"><strong>mrxdhi</strong> · <span class="review-date">26/10/2025</span></p>
+                  <p class="review-text">Es una mierda de página, pobre bdd que guarda su porquería</p>
             </li>
 
             <li class="review-block">
-                <p class="review-meta"><strong>elsheriff</strong> · 26/10/2025</p>
-                <p class="review-text">la página me agrada, pude encontrar muy facil mi scooter</p>
+                    <p class="review-meta"><strong>brunsmeier_</strong> · <span class="review-date">26/10/2025</span></p>
+                    <p class="review-text">me gusta la estetica </p>
             </li>
-            </ul>
+
+            <li class="review-block">
+                      <p class="review-meta"><strong>elsheriff</strong> · <span class="review-date">26/10/2025</span></p>
+                      <p class="review-text">la página me agrada, pude encontrar muy facil mi scooter</p>
+            </li>
+          </ul>
     </div>
 </div>
 <footer>
