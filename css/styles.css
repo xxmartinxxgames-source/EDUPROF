@@ -385,11 +385,6 @@ button#btnEnviar:hover {
    TARJETA DE SCOOTER (Diseño Horizontal Cuatro Columnas - FINAL)
    =================================================== */
 
-.scooter-section {
-    padding: 20px;
-    background-color: #1f1f1f;
-}
-
 /* Contenedor Principal de la Tarjeta */
 .scooter-info-card {
     background-color: #2b2b2b; 
@@ -531,21 +526,30 @@ button#btnEnviar:hover {
     text-align: center;
 }
 
-.status-en-línea {
+.status-Disponible {
     background-color: #28a745; 
     color: white;
 }
 
-.status-cargando {
-    background-color: #ffffff; 
+.status-BateriaBaja{
+    background-color: #ffc107;
     color: #333;
 }
 
-.status-offline {
+.status-EnUso{
+    background-color: #007bff;
+    color: white;
+}
+
+.status-EnMantenimiento {
     background-color: #dc3545;
     color: white;
 }
 
+.bateria{
+    background-color: white;
+    color: #333;
+}
 
 /* --- SECCIÓN 4: Contenedor del Mapa (25%) --- */
 .ubicacion-scooter {
