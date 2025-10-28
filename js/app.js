@@ -70,9 +70,87 @@ const scooterData = {
 };
 
 
-const btn = document.querySelector('#modalOpen');
-const modal = document.querySelector('#scooterModal')
+//const btn = document.querySelector('#modalOpen');  Elimine esta linea ya que ahora si funcionan las tarjetas levi xd
 
-btn.addEventListener("click", ()=>{
+
+
+const modal = document.querySelector('#scooterModal');
+const nombreComuna = document.getElementById('modalComuna');
+const contenedorTarjetas = document.getElementById('contenedor-tarjetas');
+const comunaTarjetas = document.querySelectorAll('.comuna-card');
+
+
+function statusCorrecionClase (status){
+    return status.replace(/ /g, "");
+};
+
+function crearTarjetasScooter (scooter, comunaNombreTitulo){
+    const statusClass = `status-${statusCorrecionClase(scooter.status)}`;
+    const mapURL = `https://maps.google.com/maps?q=${scooter.lat},${scooter.lon}&z=18&output=embed`;
+    
+    return `
+        <div class="scooter-info-card"> 
+        
+        <div class="scooter-img-container">
+            <img src="img/scooter-voltzeep.png" alt="Imagen del scooter">
+        </div>
+        
+        <div class="info-vertical"> 
+            <div class="num-serie">
+                <strong>${scooter.id}</strong>
+            </div> 
+            <div class="reporte">
+                <button type="submit" class="btn-reportar">Reportar</button>
+            </div> 
+        </div>
+
+        <div class="info-estado"> 
+            <div class="estado-bateria">
+                <div lass="estado-scooter">
+                    <p class="status ${statusClass}">${scooter.status}</p>
+                </div>
+                <div class="bateria-scooter">
+                    <p class="status bateria">${scooter.battery}</p>
+                </div>
+            </div>
+        </div>
+        <div class="ubicacion-scooter">
+                <iframe src="${mapURL}" title="Mapa de ubicación del scooter"></iframe>
+        </div>
+     </div>
+    `
+}
+
+function clickComuna(event){
+    const tarjetaClickeada = event.currentTarget;
+
+    const comunaKey = tarjetaClickeada.dataset.comuna; 
+
+    const nombreh2 = tarjetaClickeada.querySelector('.card-overlay h2');
+
+    const comunaNombreTitulo = nombreh2.textContent.trim();
+
+    nombreComuna.textContent = comunaNombreTitulo;
+
+    contenedorTarjetas.innerHTML = '';
+
+    let tarjetaHTML = '';
+
+    const scooters = scooterData[comunaKey];
+
+    if(scooters.length > 0){
+        scooters.forEach(scooter => {
+            tarjetaHTML += crearTarjetasScooter(scooter, comunaNombreTitulo);
+        });
+    }
+
+    contenedorTarjetas.innerHTML = tarjetaHTML;
+
     modal.showModal();
-})
+}
+
+window.onload = function(){
+    comunaTarjetas.forEach(tarjeta => {
+        tarjeta.addEventListener('click', clickComuna);
+    })
+}
