@@ -92,7 +92,7 @@ function crearTarjetasScooter (scooter, comunaNombreTitulo){
         <div class="scooter-info-card"> 
         
         <div class="scooter-img-container">
-            <img src="img/scooter-voltzeep.png" alt="Imagen del scooter">
+            <img src="img/volzeep-scooter.png" alt="Imagen del scooter">
         </div>
         
         <div class="info-vertical"> 
