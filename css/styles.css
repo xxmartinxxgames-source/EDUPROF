@@ -159,22 +159,22 @@ body {
 
 /* Estilo del input de Nombre de Usuario */
 .feedback-form input[type="text"] {
-     width: 100%;
-     padding: 10px 15px;
-     border: 1px solid #555;
-     border-radius: 5px;
-     background-color: #333; /* Fondo oscuro */
-     color: #fff; /* Texto blanco */
-     font-size: 1em;
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #333; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    font-size: 1em;
     box-sizing: border-box;
 }
 
 .feedback-form input[type="text"]::placeholder {
-     color: #bbb;
+    color: #bbb;
 }
 textarea#feedbackMessage {
     width: 100%;
-    padding: 15px;  
+    padding: 15px; 
     border: 1px solid #555;
     border-radius: 5px;
     background-color: #333; 
@@ -246,7 +246,7 @@ button#btnEnviar:hover {
     padding: 0; 
     margin-bottom: 25px;
     border-bottom: 1px solid #555; 
-     padding-bottom: 15px;
+    padding-bottom: 15px;
 }
 
 .review-block:last-child {
@@ -258,7 +258,7 @@ button#btnEnviar:hover {
 .review-block .review-meta {
     color: #aaa;
     font-size: 0.9em;
-     margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 .review-block .review-text {
@@ -268,8 +268,8 @@ button#btnEnviar:hover {
 }
 
 .review-block .review-meta .review-date {
-     color: #007bff;
-     font-weight: bold;
+    color: #007bff;
+    font-weight: bold;
 }
 
 @media (min-width: 992px) {
@@ -395,6 +395,7 @@ button#btnEnviar:hover {
     }
 }
 
+/* INICIO: Estilos de la Tarjeta de Scooter (Horizontal por Defecto) */
 .scooter-info-card {
     background-color: #2b2b2b; 
     border: 1px solid #444;
@@ -404,7 +405,7 @@ button#btnEnviar:hover {
     width: 800px; 
     max-width: 95%; 
     display: flex; 
-    flex-direction: row; 
+    flex-direction: row; /* Vuelve a Horizontal por defecto (Escritorio) */
     min-height: 250px; 
     overflow: hidden;
     margin: 20px auto; 
@@ -412,17 +413,15 @@ button#btnEnviar:hover {
 }
 
 .scooter-img-container {
-    width: 25%; 
+    width: 25%; /* Mantenemos el ancho en escritorio */
     min-width: 180px;
     border-radius: 5px;
     padding: 15px; 
-    
     overflow: hidden;
     position: relative;
     display: flex;
     align-items: center; 
     justify-content: center; 
-    
     background-color: #2b2b2b;
 }
 
@@ -434,10 +433,11 @@ button#btnEnviar:hover {
     border-radius: 4px;
 }
 
+/* Contenedor para N° de Serie y Reporte */
 .info-vertical {
     flex-direction: column;
     padding: 15px;
-    width: 25%;
+    width: 25%; /* Mantenemos el ancho en escritorio */
     background-color: #2b2b2b;
     padding-bottom: 5px; 
     display: flex;
@@ -478,8 +478,9 @@ button#btnEnviar:hover {
     background-color: #680711;
 }
 
+/* Contenedor para Estado y Batería */
 .info-estado { 
-    width: 25%;
+    width: 25%; /* Mantenemos el ancho en escritorio */
     display: flex;
     flex-direction: column;
     padding: 25px;
@@ -536,8 +537,9 @@ button#btnEnviar:hover {
     color: #333;
 }
 
+/* Contenedor para el Mapa */
 .ubicacion-scooter {
-    width: 25%;
+    width: 25%; /* Mantenemos el ancho en escritorio */
     padding: 15px; 
     display: flex;
     align-items: center;
@@ -552,16 +554,20 @@ button#btnEnviar:hover {
     border-radius: 4px;
     background-color: #333; 
 }
+/* FIN: Estilos de la Tarjeta de Scooter (Horizontal por Defecto) */
 
 
-
+/* INICIO: Media Query para Tarjeta de Scooter (Vertical en móvil) */
 @media (max-width: 768px) {
+    
+    /* CAMBIO CLAVE: Hace que el contenedor principal sea vertical */
     .scooter-info-card {
         flex-direction: column; 
         width: 95%;
-        min-height: auto;
+        min-height: 650px;
     }
     
+    /* Hace que todos los contenedores hijos ocupen el 100% del ancho */
     .scooter-img-container,
     .info-vertical,
     .info-estado,
@@ -573,57 +579,87 @@ button#btnEnviar:hover {
         background-color: #2b2b2b; 
     }
     
+    /* Reorganización y estilos verticales */
+    
     .scooter-img-container {
         height: 200px;
+        order: 1; /* Posición 1: Imagen */
+        border-bottom: 1px solid #444; 
     }
 
+    /* Contenedor N° de Serie */
     .info-vertical {
-        flex-direction: row; 
-        justify-content: space-between;
+        flex-direction: column; /* Apila el N° de Serie y el Reporte temporalmente para manejar el orden */
+        justify-content: center;
         align-items: center;
-        border-bottom: 1px solid #333;
+        border-bottom: 1px solid #444;
         padding-bottom: 15px;
         padding-top: 15px;
+        order: 2; /* Posición 2: Número de Serie */
     }
     
     .num-serie {
         text-align: left;
         margin-top: 0;
-        margin-bottom: 0; 
-    }
-    
-    .reporte {
-        padding-bottom: 0;
+        margin-bottom: 10px; /* Separación con el estado/batería */
+        font-size: 1.6em;
     }
 
+    /* Movemos el Reporte al final de la tarjeta */
+    .reporte {
+        width: 100%; 
+        padding: 15px;
+        border-top: 1px solid #444; /* Separador antes del botón */
+        order: 5; /* Posición 5: Botón Reportar (Último) */
+        padding-bottom: 15px;
+    }
+    
+    .reporte .btn-reportar {
+        max-width: 100%;
+        padding: 12px 20px;
+    }
+
+    /* Contenedor Estado y Batería */
     .info-estado {
-        flex-direction: row; 
         justify-content: space-around; 
         gap: 15px;
-        border-bottom: 1px solid #333;
+        border-bottom: 1px solid #444;
+        order: 1; /* Posición 3: Estado y Batería */
     }
 
     .estado-scooter,
     .bateria-scooter {
         width: 50%;
         height: auto;
-        padding: 15px 10px;
-        flex-grow: 0; 
-        margin: 0;
+        padding: 10px 5px;
     }
     
-    .status {
-        width: auto; 
-    }
-
     .ubicacion-scooter {
-        height: 200px;
+        height: 250px;
+        order: 4; /* Posición 4: Mapa */
+        border-bottom: 1px solid #444;
     }
     
     .ubicacion-scooter iframe {
         min-height: 150px;
     }
+
+    /* Ajuste para pantallas aún más pequeñas (móviles) */
+    @media (max-width: 480px) {
+        .info-estado {
+            flex-direction: column; /* Apila estado y batería */
+            gap: 10px;
+        }
+
+        .estado-scooter,
+        .bateria-scooter {
+            width: 100%;
+            padding: 10px;
+        }
+    }
 }
+/* FIN: Media Query para Tarjeta de Scooter */
+
 
 #scooterModal {
     background-color: #2b2b2b; 
@@ -712,7 +748,7 @@ button#btnEnviar:hover {
     border: none;
     padding: 2rem;
     border-radius: 1rem;
-    max-width: 90%;
+    max-width: 95%; 
     width: 500px; 
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
     background-color: #222;
@@ -733,7 +769,7 @@ button#btnEnviar:hover {
         
 
 #reportModal #reportScooterSpan {
-    color: #007bff;  /*Decidir color*/
+    color: #007bff; 
     font-weight: Arial, sans-serif;
 }
 
@@ -770,7 +806,7 @@ button#btnEnviar:hover {
     border-radius: 0.5rem;
     border: none;
 }
-       
+        
 #btnEnviar {
     background-color: #007bff; 
 }
@@ -783,4 +819,50 @@ button#btnEnviar:hover {
 }
 #btnCancelar:hover {
     background-color: #4b5563;
+}
+
+label {
+    padding-bottom: 10px !important;
+}  
+
+@media (max-width: 576px) {
+    .box-boton-scooter {
+        flex-direction: column; 
+        gap: 10px; 
+        margin: 5vh 0 10vh 0;
+        text-align: center;
+    }
+    
+    .box-boton-scooter p {
+        margin-bottom: 0; 
+    }
+
+    
+
+}
+
+/*footer*/
+@media (max-width: 710px) {
+.row {
+    flex-direction: column;
+}
+
+.col-4.text-center{
+width: 100%;
+} 
+
+.col-4 {
+    width: 100%;
+}
+.ms-5 {
+    margin-left: 0% !important;
+}
+
+.text-center{
+    text-align: left !important;
+}
+}
+
+.contenedor-tarjetas {
+    padding-top: 125px;
 }
