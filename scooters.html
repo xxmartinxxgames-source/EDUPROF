@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-sm p-3 bg-secondary navbar-style fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src = "img/voltzeeplogo.png">
+      <img src = "img/voltzeeplogo.png">   
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -29,7 +29,7 @@
           <a class="nav-link active pe-2" aria-current="page" href="index.html">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link pe-2" href="pruebas.html">Reportes</a>
+          <a class="nav-link pe-2" href="reportes.html">Reportes</a>
         </li>
         <li class="nav-item">
           <a class="nav-link " href="#contacto">Contacto</a>
@@ -103,7 +103,17 @@
 </dialog>
 
 
-
+<dialog id = "reportModal">
+    <h2>Estas reportando el scooter: <strong><span id = "reportScooterSpan"></span></strong> en <span id = "comunaNombre"></span></h2>
+    <form id = "reportForm">
+        <label>Descripción del reporte:</label>
+        <textarea id = "mensajeReport" placeholder="Ej: Se ha roto un freno, La batería no concuerda con la página... Etc." required></textarea>
+        <div class="footer-reportModal">
+            <button type = "button" id = "btnCancelar" class = "btn-footerReport">Cancelar</button>
+            <button type = "submit" id = "btnEnviar" class = "btn-footerReport">Enviar</button>
+        </div>
+    </form>
+</dialog>
 
 
 

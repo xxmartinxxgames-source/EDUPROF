@@ -79,6 +79,15 @@ const nombreComuna = document.getElementById('modalComuna');
 const contenedorTarjetas = document.getElementById('contenedor-tarjetas');
 const comunaTarjetas = document.querySelectorAll('.comuna-card');
 
+//Referencias al modal de reportes
+
+const reportModal = document.getElementById('reportModal');
+const reportSpan = document.getElementById('reportScooterSpan');
+const comunaSpan = document.getElementById('comunaNombre');
+const formularioReport = document.getElementById('reportForm');
+const inputMensaje = document.getElementById('mensajeReport');
+const btnCancelar = document.getElementById('btnCancelar');
+const btnEnviar = document.getElementById('btnEnviar');
 
 function statusCorrecionClase (status){
     return status.replace(/ /g, "");
@@ -100,7 +109,7 @@ function crearTarjetasScooter (scooter, comunaNombreTitulo){
                 <strong>${scooter.id}</strong>
             </div> 
             <div class="reporte">
-                <button type="submit" class="btn-reportar">Reportar</button>
+                <button type="button" class="btn-reportar">Reportar</button>
             </div> 
         </div>
 
@@ -134,6 +143,8 @@ function clickComuna(event){
 
     contenedorTarjetas.innerHTML = '';
 
+    contenedorTarjetas.dataset.comunaNombre = comunaNombreTitulo;
+
     let tarjetaHTML = '';
 
     const scooters = scooterData[comunaKey];
@@ -154,3 +165,24 @@ window.onload = function(){
         tarjeta.addEventListener('click', clickComuna);
     })
 }
+
+contenedorTarjetas.addEventListener('click', (e) =>{
+    const botonReportar = e.target.closest('.btn-reportar');
+    if(botonReportar){
+        const scooterCard = botonReportar.closest('.scooter-info-card');
+        const scooterID = scooterCard.querySelector('.num-serie strong').textContent.trim();
+        const comunaNombre = contenedorTarjetas.dataset.comunaNombre;
+        reportSpan.textContent = scooterID; 
+        comunaSpan.textContent = comunaNombre;
+        reportModal.showModal();
+    }
+})
+
+btnCancelar.addEventListener('click', () =>{
+    reportModal.close();
+})
+
+
+btnEnviar.addEventListener('click', (e) => {
+    
+})
