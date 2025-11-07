@@ -816,3 +816,120 @@ width: 100%;
 .contenedor-tarjetas {
     padding-top: 125px;
 }
+
+/*Estilos para la zona de quienes somos*/
+
+
+.separador{
+    padding-top: 100px;
+}
+.tarjeta-info {
+    background-color: var(--color-card-bg); /* Gris oscuro */
+    padding: 35px; /* Reducimos un poco el padding */
+    margin-top: 30px;
+    background-color: #2b2b2b;
+}
+
+
+.tarjeta-info h1 {
+    /* Estilo del título principal de la tarjeta */
+    color: cadetblue;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #0056b3; /* Línea de separación visible */
+}
+
+.tarjeta-info h2 {
+    color: cornflowerblue;
+    font-size: 1.4rem;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.tarjeta-info p {
+    /* Estilo del texto del contenido */
+    color: white;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+
+/* ---------------------------------------------- */
+/* ORGANIZACIÓN DE SECCIONES                      */
+/* ---------------------------------------------- */
+
+@media (min-width: 992px) {
+    /* Estilos solo para pantallas grandes para mejorar la lectura */
+    .tarjeta-info p {
+        max-width: none; /* Eliminamos el límite de ancho para un mejor uso del espacio */
+    }
+}
+
+/*ESTILOS CONTACTO*/
+
+.contenedor-info {
+    margin-top: 130px !important;
+    background-color: #2b2b2b;
+}
+
+.contenedor-ubicacion h2{
+color: white;    
+    font-size: 1.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.contenedor-redes{
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid #3a3a3a;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1; /* Para que ocupen espacio equitativo en Flexbox */
+    min-width: 300px; /* Ancho mínimo para que no se compriman demasiado */
+}
+.contenedor-redes h1  {
+    color: #2c89ec;
+}
+
+.contenedor-redes h2 {
+    color: white;
+        font-size: 1.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.sede {
+    overflow: hidden;
+    padding-bottom: 75%; /* Ratio 4:3. Para 16:9 usa 56.25% */
+    position: relative;
+    height: 0;
+    border-radius: 8px; /* Bordes redondeados para el mapa */
+    border: 1px solid #4a4a4a;
+}
+
+.sede iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border: none;
+}
+
+@media (max-width: 991px) {
+    .contenedor-info {
+        flex-direction: column; /* Apila las tarjetas en pantallas pequeñas */
+        align-items: center;
+    }
+    .contenedor-ubicacion,
+    .contenedor-redes {
+        width: 95%; /* Asegura que ocupen casi todo el ancho disponible */
+        max-width: 600px; /* Límite para que no sean demasiado anchas en tablets */
+    }}
