@@ -770,7 +770,6 @@ button#btnEnviar:hover {
     background-color: #4b5563;
 }
 
-
 label {
     padding-bottom: 10px !important;
 }  
@@ -960,4 +959,10 @@ width: 100%;
         width: 95%; 
         max-width: 600px;
     }
+}
+
+
+/*clase para separar un poco los reportes*/
+.separadors{
+    margin-top: 200px;
 }

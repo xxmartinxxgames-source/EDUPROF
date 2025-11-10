@@ -184,5 +184,50 @@ btnCancelar.addEventListener('click', () =>{
 
 
 btnEnviar.addEventListener('click', (e) => {
-    
-})
+    e.preventDefault();
+
+    const scooterID = reportSpan.textContent.trim();
+    const comunaNombre = comunaSpan.textContent.trim();
+
+    const textReport = document.getElementById('mensajeReport').value;
+
+    if(!textReport){
+        alert("Debes ingresar un reporte!");
+        return;
+    }
+
+    const reportObject = {
+        idScooter: scooterID,
+        comuna: comunaNombre,
+        reporte: textReport
+    }
+
+
+
+    enviarReporte(reportObject);
+});
+
+    async function enviarReporte(reportObject){
+        const URL = "http://localhost:8080/reportes/create";
+
+        try{ 
+            const respuesta = await fetch(URL,{
+                method: "POST",
+                headers: {
+                   "Content-Type" : "application/json" 
+                },
+                body: JSON.stringify(reportObject)
+            })
+
+            if(respuesta.ok){
+                reportModal.close();
+                document.getElementById('mensajeReport').value = '';
+            }else{
+                alert("Error al enviar el reporte");
+            }
+
+
+        }catch(error){
+            console.log("Ocurrio un error: "+ error);
+        }
+    }
