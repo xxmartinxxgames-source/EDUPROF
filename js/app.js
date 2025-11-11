@@ -208,7 +208,7 @@ btnEnviar.addEventListener('click', (e) => {
 });
 
     async function enviarReporte(reportObject){
-        const URL = "http://localhost:8080/reportes/create";
+        const URL = "/reportes/create";
 
         try{ 
             const respuesta = await fetch(URL,{

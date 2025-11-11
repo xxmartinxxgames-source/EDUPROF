@@ -1,5 +1,5 @@
  async function crearTarjetasReport (){
-     const URL = "http://localhost:8080/reportes/read";
+     const URL = "/reportes/read";
      const listaUl = document.getElementById('listaReportes');
 
      try {
@@ -7,7 +7,7 @@
         const reportes = await respuesta.json();
 
         if (!Array.isArray(reportes) || reportes.length === 0){
-            listaUl.innerHTML = '<li class = "noReports">No hay reportes aún</li>';
+            listaUl.innerHTML = '<li class = "noReports">No hay ningun reporte</li>';
             return;
         }
 

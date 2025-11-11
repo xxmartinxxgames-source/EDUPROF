@@ -15,7 +15,7 @@ formulario.addEventListener('submit', (e)=> {
 
 
     async function feedbackEnviar(feedbackObject){
-        const URL = "http://localhost:8080/feedback/crear";  
+        const URL = "/feedback/crear";  
 
         try {
           const respuesta = await fetch (URL,{
@@ -32,7 +32,7 @@ formulario.addEventListener('submit', (e)=> {
 
 
     async function crearTarjetaFeed(){
-        const URL = "http://localhost:8080/feedback/leer";
+        const URL = "/feedback/leer";
         const listaUl = document.getElementById('lista');
         try {
             const respuesta = await fetch(URL);
