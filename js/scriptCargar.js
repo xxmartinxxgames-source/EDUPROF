@@ -6,6 +6,11 @@
         const respuesta = await fetch(URL);
         const reportes = await respuesta.json();
 
+        if (!Array.isArray(reportes) || reportes.length === 0){
+            listaUl.innerHTML = '<li class = "noReports">No hay reportes aún</li>';
+            return;
+        }
+
         const actuales = reportes.toReversed();
         actuales.forEach(reporte => {
             const li = document.createElement('li');

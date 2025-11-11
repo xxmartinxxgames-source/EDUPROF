@@ -966,3 +966,16 @@ width: 100%;
 .separadors{
     margin-top: 200px;
 }
+
+
+/*Clase para el li de respuesta al no haber registros leibles*/
+
+.noComents{
+    color: red;
+    font-size: 17px;
+}
+
+.noReports{
+    color: #007bff;
+    font-size: 20px;
+}
