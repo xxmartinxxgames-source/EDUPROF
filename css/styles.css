@@ -25,8 +25,7 @@ body {
 
 .carousel-item img{
     object-fit: cover;
-    object-position: bottom;
-    height: 100%;
+    height: 120%;
 }
 
 .box-boton-scooter {
@@ -371,7 +370,7 @@ button#btnEnviar:hover {
     display: flex;
     align-items: center; 
     justify-content: center; 
-    background-color: #2b2b2b;
+    background-color: #ffffff;
 }
 
 .scooter-img-container img {
@@ -812,16 +811,11 @@ width: 100%;
 }
 }
 
-.contenedor-tarjetas {
-    padding-top: 125px;
-}
 
 /*Estilos para la zona de quienes somos*/
 
 
-.separador{
-    padding-top: 100px;
-}
+
 .tarjeta-info {
     background-color: var(--color-card-bg); /* Gris oscuro */
     padding: 35px; /* Reducimos un poco el padding */
@@ -871,55 +865,82 @@ width: 100%;
 
 /*ESTILOS CONTACTO*/
 
-.contenedor-info {
 
-    margin-top: 130px !important; 
-    padding: 20px 0; 
-
+/* Asumiendo que esta es tu variable principal de color (Turquesa/Cyan) */
+:root {
+    --color-primary: #0075d4; 
+    --color-card-bg: #222222; /* El gris oscuro que estás usando */
 }
 
-/* Estilo de Tarjetas/Secciones de Contacto */
+/* ------------------------------------------- */
+/* 1. Contenedor Principal                     */
+/* ------------------------------------------- */
+.contenedor-info {
+    display: flex; 
+    flex-wrap: wrap; 
+    /* Usaremos 'space-around' o 'center' para que ambos tengan margen lateral si lo deseas. 
+       Mantendré 'space-between' si prefieres que toquen los bordes. */
+    justify-content: space-between; 
+    align-items: flex-start; 
+
+    margin-top: 130px; 
+    padding: 20px 0; 
+    width: 100%; 
+    max-width: 1000px; /* Reduzco ligeramente el max-width para que sea más centrado y compacto */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 .contenedor-ubicacion,
 .contenedor-redes {
     background-color: var(--color-card-bg); 
     border-radius: 12px;
     padding: 30px;
-    margin-bottom: 30px; /* Separación vertical en móvil */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
     border: 1px solid #3a3a3a;
-    /* Flexbox: flex: 1; min-width: 300px; */
-    transition: none; /* Quitamos transiciones no deseadas */
+    
+    flex: 1; 
+    min-width: 300px; 
+    /* 🔑 Damos un margen uniforme a los lados para separarlos */
+    margin: 0 15px 30px 15px; 
 }
 
-/* Títulos */
+.contenedor-ubicacion iframe{
+    width: 400px;
+    align-items: center;
+}
+
 .contenedor-ubicacion h2 {
-    color: rgb(33, 90, 156); /* Ubicación en azul */
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 15px;
+    /* 🔑 Aplicamos el color Turquesa/Cyan de la paleta */
+    color: var(--color-primary); 
+    font-size: 2rem; 
+    font-weight: 700;
+    margin-bottom: 20px;
 }
 
 .contenedor-redes h1 {
-    color: cornflowerblue; 
-    font-size: 1.8rem;
-    font-weight: 600;
+    /* 🔑 Aplicamos el color Turquesa/Cyan de la paleta */
+    color: var(--color-primary); 
+    font-size: 2rem; 
+    font-weight: 700;
     margin-bottom: 25px;
 }
 
 .contenedor-redes h2 {
-
-    color: white;
+    color: #cccccc; 
     font-size: 1.1rem; 
     font-weight: 500;
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px; 
 }
 
 .contenedor-redes h2 a {
+    /* 🔑 Aplicamos el color Turquesa/Cyan a los enlaces */
     color: var(--color-primary);
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
+    font-weight: 600; 
 }
 
 .contenedor-redes h2 a:hover {
@@ -927,45 +948,41 @@ width: 100%;
 }
 
 
-
 .sede {
-
     overflow: hidden;
+    /* 🔑 Reducimos la altura del mapa para que se vea más proporcionado
+       y el contenedor de Redes se alinee mejor visualmente. */
     padding-bottom: 75%; 
     position: relative;
     height: 0;
     border-radius: 8px; 
     border: 1px solid #4a4a4a;
 }
+/* ... el iframe del mapa permanece igual ... */
 
-.sede iframe {
-
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    border: none;
-}
-
-
+/* ------------------------------------------- */
+/* 4. Media Query (Responsividad)              */
+/* ------------------------------------------- */
+/* Esto asegura que el layout se mantenga bien en móviles */
 @media (max-width: 991px) {
     .contenedor-info {
         flex-direction: column; 
         align-items: center;
     }
-    .contenedor-ubicacion,
-    .contenedor-redes {
-        width: 95%; 
-        max-width: 600px;
+    .contenedor-ubicacion{
+        align-items: center;
     }
+    .contenedor-redes {
+        width: 90%; 
+        max-width: 600px;
+        /* Quitamos los márgenes laterales extra en móvil */
+        margin-left: 0; 
+        margin-right: 0; 
+    }
+
 }
 
 
-/*clase para separar un poco los reportes*/
-.separadors{
-    margin-top: 200px;
-}
 
 
 /*Clase para el li de respuesta al no haber registros leibles*/
@@ -978,4 +995,107 @@ width: 100%;
 .noReports{
     color: #007bff;
     font-size: 20px;
+}
+
+/*banner con el boton hacia los scooters*/
+
+.scooter-promo-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    height: 102vh; 
+    z-index: 10;
+    
+    /* Efecto de fondo semitransparente (overlay) */
+    background-color: rgba(0, 0, 0, 0.55); 
+    
+    /* 🔑 Centrado del contenido y ORDEN VERTICAL */
+    display: flex;
+    /* 🔑 Asegura que los ítems se apilen uno encima del otro */
+    flex-direction: column; 
+    /* Centrar horizontalmente los ítems */
+    align-items: center; 
+    /* Centrar verticalmente el grupo de ítems */
+    justify-content: center; 
+    text-align: center;
+
+    padding-top: 90px;
+}
+
+.promo-content {
+
+    padding: 30px;
+    max-width: 600px;
+}
+
+.scooter-promo-banner h2 {
+    color: white; /* Asegúrate de que el texto sea visible */
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 30px; /* Más espacio entre el título y el scooter */
+}
+
+.scooter-promo-banner img {
+    /* 🔑 Ajusta el tamaño para que se vea prominente, pero no gigante */
+    width: 350px; 
+    height: auto; /* Mantiene la proporción */
+    object-fit: contain; /* Asegura que la imagen completa se muestre */
+    z-index: 12; /* Asegura que el scooter esté visible */
+    margin-bottom: 40px; /* Espacio entre el scooter y el botón */
+}
+
+/* Estilo para el botón (usando el color turquesa/cyan) */
+.custom-promo-btn {
+    background-color: #0676d1; 
+    border-color: #0676d1; 
+    padding: 15px 30px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.custom-promo-btn:hover {
+    /* Un tono un poco más oscuro de turquesa para el hover */
+    background-color: #0676d1; 
+    border-color: #0676d1; 
+}
+
+/* El media query de corrección de la navbar está bien, lo mantengo: */
+@media (min-width: 835px) {
+    .navbar-expand-sm {
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+    }
+}
+
+
+
+
+.report-info h1 {
+    color: rgb(21, 112, 230);
+}
+
+.report-info p{
+    color:white;
+}
+
+
+.background-report {
+    background-color: #161515;
+    margin: 10px;
+    max-height: 120vh; 
+    
+    border: 1px solid #333333;
+    border-radius: 8px;
+    padding-top: 150px;
+}
+
+.contenedor-tarjetas-report {
+   
+    height: 60vh; 
+    overflow-y: scroll; 
+    padding: 15px;
+    border-radius: 6px; 
 }
