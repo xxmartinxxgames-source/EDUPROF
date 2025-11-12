@@ -18,6 +18,18 @@ body {
     height: 15vh;
 }
 
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25) !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
 .carousel-item{
     margin-top: 5vh;
     height: 97vh;
@@ -235,24 +247,47 @@ button#btnEnviar:hover {
         margin: 0;
     }
 }
-/*---------------------------------------------Estilos Pagina Scooters-----------------------------------------------------------*/
+/* Estilos para la página scooters.html */
+body.scooters-page {
+    background-image: url('../img/chile.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+}
+
+body.scooters-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(20, 30, 50, 0.85) 100%);
+    z-index: -1;
+}
+
 .cont-1 {
-    padding-top: 150px;
+    padding-top: 25vh;
     min-height: 80vh;
-    background-color: rgb(31, 31, 31); 
+    background-color: transparent;
     color: white;
     text-align: center;
+    position: relative;
 }
 
 .scooter-selection-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    padding-top: 3vh;
 }
 
 .scooter-selection-container h1 {
     font-size: 3em;
-    margin-bottom: 5px;
+    margin-bottom: 4vh;
 }
 
 .scooter-selection-container p {
@@ -316,12 +351,83 @@ button#btnEnviar:hover {
 }
 
 .comuna-info-display {
-    border: 1px solid #444;
-    border-radius: 8px;
+    border: none;
+    border-radius: 15px;
     min-height: 400px;
-    padding: 20px;
-    background-color: #222;
+    padding: 0;
+    background: transparent;
     text-align: left;
+    box-shadow: none;
+    backdrop-filter: none;
+    overflow: visible;
+}
+
+.banner-seleccion-comuna {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, rgba(25, 35, 55, 0.98) 0%, rgba(35, 45, 70, 0.98) 100%);
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(100, 180, 255, 0.6);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(100, 181, 255, 0.1);
+}
+
+.banner-seleccion-comuna::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #64b5ff 0%, #00d4ff 50%, #64b5ff 100%);
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+}
+
+.banner-content {
+    text-align: center;
+    z-index: 1;
+    position: relative;
+}
+
+.banner-icon {
+    font-size: 5rem;
+    color: #64b5ff;
+    margin-bottom: 20px;
+    display: block;
+    text-shadow: 0 0 30px rgba(100, 181, 255, 0.8);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.banner-seleccion-comuna h3 {
+    color: #64b5ff;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(100, 181, 255, 0.4);
+}
+
+.banner-text {
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .comuna-info-display h3#display-title {
@@ -331,8 +437,77 @@ button#btnEnviar:hover {
     font-size: 2em;
 }
 
+#scooter-list-content {
+    padding: 20px;
+}
+
+.comuna-info-display:has(#scooter-list-content:not(:empty)) #banner-seleccion {
+    display: none;
+}
+
 .comuna-info-display #scooter-list-content p {
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    .cont-1 {
+        padding-top: 20vh;
+        min-height: 75vh;
+    }
+    
+    .scooter-selection-container {
+        padding-top: 2.5vh;
+    }
+    
+    .banner-seleccion-comuna {
+        padding: 40px 20px;
+        min-height: 300px;
+    }
+    
+    .banner-icon {
+        font-size: 4rem;
+    }
+    
+    .banner-seleccion-comuna h3 {
+        font-size: 2rem;
+    }
+    
+    .banner-text {
+        font-size: 1.1rem;
+    }
+    
+    body.scooters-page {
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: 480px) {
+    .cont-1 {
+        padding-top: 10vh;
+        min-height: 70vh;
+    }
+    
+    .scooter-selection-container {
+        padding-top: 2vh;
+    }
+    
+    .banner-seleccion-comuna {
+        padding: 30px 15px;
+        min-height: 250px;
+    }
+    
+    .banner-icon {
+        font-size: 3.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .banner-seleccion-comuna h3 {
+        font-size: 1.8rem;
+    }
+    
+    .banner-text {
+        font-size: 1rem;
+    }
 }
 
 
@@ -353,7 +528,7 @@ button#btnEnviar:hover {
     width: 800px; 
     max-width: 95%; 
     display: flex; 
-    flex-direction: row; /* Vuelve a Horizontal por defecto (Escritorio) */
+    flex-direction: row;
     min-height: 250px; 
     overflow: hidden;
     margin: 20px auto; 
@@ -361,7 +536,7 @@ button#btnEnviar:hover {
 }
 
 .scooter-img-container {
-    width: 25%; /* Mantenemos el ancho en escritorio */
+    width: 25%; 
     min-width: 180px;
     border-radius: 5px;
     padding: 15px; 
@@ -381,11 +556,11 @@ button#btnEnviar:hover {
     border-radius: 4px;
 }
 
-/* Contenedor para N° de Serie y Reporte */
+
 .info-vertical {
     flex-direction: column;
     padding: 15px;
-    width: 25%; /* Mantenemos el ancho en escritorio */
+    width: 25%; 
     background-color: #2b2b2b;
     padding-bottom: 5px; 
     display: flex;
@@ -485,9 +660,9 @@ button#btnEnviar:hover {
     color: #333;
 }
 
-/* Contenedor para el Mapa */
+
 .ubicacion-scooter {
-    width: 25%; /* Mantenemos el ancho en escritorio */
+    width: 25%; 
     padding: 15px; 
     display: flex;
     align-items: center;
@@ -502,111 +677,131 @@ button#btnEnviar:hover {
     border-radius: 4px;
     background-color: #333; 
 }
-/* FIN: Estilos de la Tarjeta de Scooter (Horizontal por Defecto) */
 
 
-/* INICIO: Media Query para Tarjeta de Scooter (Vertical en móvil) */
+
+
 @media (max-width: 768px) {
-    
-    /* CAMBIO CLAVE: Hace que el contenedor principal sea vertical */
     .scooter-info-card {
-        flex-direction: column; 
-        width: 95%;
-        min-height: 650px;
-    }
-    
-    /* Hace que todos los contenedores hijos ocupen el 100% del ancho */
-    .scooter-img-container,
-    .info-vertical,
-    .info-estado,
-    .ubicacion-scooter {
+        flex-direction: row;
         width: 100%;
-        min-width: auto;
-        border-right: none;
-        padding: 15px;
-        background-color: #2b2b2b; 
+        max-width: 100%;
+        min-height: 200px;
+        flex-wrap: wrap;
     }
-    
-    /* Reorganización y estilos verticales */
     
     .scooter-img-container {
+        width: 20%;
+        min-width: 120px;
         height: 200px;
-        order: 1; /* Posición 1: Imagen */
-        border-bottom: 1px solid #444; 
+        padding: 10px;
     }
-
-    /* Contenedor N° de Serie */
+    
     .info-vertical {
-        flex-direction: column; /* Apila el N° de Serie y el Reporte temporalmente para manejar el orden */
-        justify-content: center;
-        align-items: center;
-        border-bottom: 1px solid #444;
-        padding-bottom: 15px;
-        padding-top: 15px;
-        order: 2; /* Posición 2: Número de Serie */
+        width: 20%;
+        min-width: 120px;
+        padding: 10px;
+        flex-direction: column;
+        justify-content: space-between;
     }
     
     .num-serie {
-        text-align: left;
-        margin-top: 0;
-        margin-bottom: 10px; /* Separación con el estado/batería */
-        font-size: 1.6em;
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        margin-top: 5px;
     }
-
-    /* Movemos el Reporte al final de la tarjeta */
+    
     .reporte {
-        width: 100%; 
-        padding: 15px;
-        border-top: 1px solid #444; /* Separador antes del botón */
-        order: 5; /* Posición 5: Botón Reportar (Último) */
-        padding-bottom: 15px;
+        width: 100%;
+        padding: 10px;
+        padding-bottom: 10px;
     }
     
     .reporte .btn-reportar {
-        max-width: 100%;
-        padding: 12px 20px;
+        padding: 8px 15px;
+        font-size: 0.9em;
     }
-
-    /* Contenedor Estado y Batería */
+    
     .info-estado {
-        justify-content: space-around; 
-        gap: 15px;
-        border-bottom: 1px solid #444;
-        order: 1; /* Posición 3: Estado y Batería */
+        width: 20%;
+        min-width: 100px;
+        padding: 15px 10px;
+        font-size: 10px;
     }
-
+    
     .estado-scooter,
     .bateria-scooter {
-        width: 50%;
-        height: auto;
-        padding: 10px 5px;
+        width: 100%;
+        padding: 8px 5px;
+        font-size: 10px;
     }
     
     .ubicacion-scooter {
-        height: 250px;
-        order: 4; /* Posición 4: Mapa */
-        border-bottom: 1px solid #444;
+        width: 40%;
+        min-width: 150px;
+        height: 200px;
+        padding: 10px;
     }
     
     .ubicacion-scooter iframe {
-        min-height: 150px;
-    }
-
-    /* Ajuste para pantallas aún más pequeñas (móviles) */
-    @media (max-width: 480px) {
-        .info-estado {
-            flex-direction: column; /* Apila estado y batería */
-            gap: 10px;
-        }
-
-        .estado-scooter,
-        .bateria-scooter {
-            width: 100%;
-            padding: 10px;
-        }
+        height: 100%;
+        min-height: 180px;
     }
 }
-/* FIN: Media Query para Tarjeta de Scooter */
+
+@media (max-width: 480px) {
+    .scooter-info-card {
+        min-height: 180px;
+    }
+    
+    .scooter-img-container {
+        width: 25%;
+        min-width: 100px;
+        height: 180px;
+        padding: 8px;
+    }
+    
+    .info-vertical {
+        width: 25%;
+        min-width: 100px;
+        padding: 8px;
+    }
+    
+    .num-serie {
+        font-size: 1em;
+        margin-bottom: 15px;
+    }
+    
+    .info-estado {
+        width: 25%;
+        min-width: 90px;
+        padding: 10px 8px;
+        font-size: 9px;
+    }
+    
+    .estado-scooter,
+    .bateria-scooter {
+        padding: 6px 4px;
+        font-size: 9px;
+    }
+    
+    .ubicacion-scooter {
+        width: 25%;
+        min-width: 120px;
+        height: 180px;
+        padding: 8px;
+    }
+    
+    .ubicacion-scooter iframe {
+        min-height: 160px;
+    }
+    
+    .reporte .btn-reportar {
+        padding: 6px 12px;
+        font-size: 0.85em;
+    }
+}
+
 
 
 #scooterModal {
@@ -812,52 +1007,159 @@ width: 100%;
 }
 
 
-/*Estilos para la zona de quienes somos*/
-
-
-
-.tarjeta-info {
-    background-color: var(--color-card-bg); 
-    padding: 35px;
-    margin-top: 30px;
-    background-color: #2b2b2b;
+/* Estilos para la página informacion.html */
+body.informacion-page {
+    background-image: url('../img/fondo.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
 }
 
+body.informacion-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(20, 30, 50, 0.8) 100%);
+    z-index: -1;
+}
+
+.separador {
+    height: 12vh;
+    min-height: 80px;
+}
+
+.container-informacion {
+    padding: 2vh 20px;
+    padding-top: 4vh;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.tarjeta-info {
+    background: linear-gradient(135deg, rgba(30, 30, 40, 0.95) 0%, rgba(20, 25, 35, 0.98) 100%);
+    padding: 45px;
+    margin: 40px auto;
+    max-width: 1200px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 5px 15px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(0, 123, 255, 0.3);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tarjeta-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #007bff 0%, #00d4ff 50%, #007bff 100%);
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.tarjeta-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 123, 255, 0.3), 0 10px 25px rgba(0, 0, 0, 0.4);
+}
 
 .tarjeta-info h1 {
-    color: cadetblue;
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 3px solid #0056b3; 
+    color: #4da6ff;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #007bff 0%, #00d4ff 100%) 1;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    letter-spacing: -0.5px;
 }
 
 .tarjeta-info h2 {
-    color: cornflowerblue;
-    font-size: 1.4rem;
-    margin-top: 25px;
-    margin-bottom: 10px;
-    font-weight: 600;
+    color: #66b3ff;
+    font-size: 1.6rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
 }
 
 .tarjeta-info p {
-    color: white;
-    line-height: 1.7;
-    font-size: 1.05rem;
-    margin-bottom: 15px;
+    color: #e0e0e0;
+    line-height: 1.8;
+    font-size: 1.15rem;
+    margin-bottom: 20px;
     text-align: justify;
+    font-weight: 400;
 }
 
-
-/* ---------------------------------------------- */
-/* ORGANIZACIÓN DE SECCIONES                      */
-/* ---------------------------------------------- */
-
 @media (min-width: 992px) {
-
+    .tarjeta-info {
+        padding: 50px;
+    }
+    
     .tarjeta-info p {
         max-width: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .separador {
+        height: 10vh;
+        min-height: 70px;
+    }
+    
+    .container-informacion {
+        padding: 1.5vh 10px;
+        padding-top: 3vh;
+    }
+    
+    .tarjeta-info {
+        padding: 30px 20px;
+        margin: 30px 10px;
+        border-radius: 15px;
+    }
+    
+    .tarjeta-info h1 {
+        font-size: 2rem;
+    }
+    
+    .tarjeta-info h2 {
+        font-size: 1.4rem;
+    }
+    
+    .tarjeta-info p {
+        font-size: 1.05rem;
+    }
+    
+    body.informacion-page {
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: 480px) {
+    .separador {
+        height: 8vh;
+        min-height: 60px;
+    }
+    
+    .container-informacion {
+        padding: 1vh 10px;
+        padding-top: 2.5vh;
     }
 }
 

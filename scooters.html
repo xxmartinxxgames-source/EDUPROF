@@ -14,7 +14,7 @@
     <title>VoltZeep - Scooters</title>
 
 </head>
-<body>
+<body class="scooters-page">
     <nav class="navbar navbar-expand-lg p-3 bg-secondary navbar-style fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
@@ -50,8 +50,7 @@
 <div class="container-fluid cont-1">
     
     <div class="scooter-selection-container">
-        <h1>Revisa nuestros scooters </h1>
-        <p>Haz clic en la comuna para ver los puntos de recogida y su disponibilidad:</p>
+        <h1>Revisa nuestros scooters</h1>
         <!-- un div con las tarjetas de la comunas -->
         <div class="comuna-cards-container">
             <!-- Un div con la tarjeta de una comuna -->
@@ -86,9 +85,14 @@
             </div>
         
         <div id="comuna-info-display" class="comuna-info-display mt-5">
-            <h3 id="display-title">Selecciona una comuna para comenzar</h3>
+            <div id="banner-seleccion" class="banner-seleccion-comuna">
+                <div class="banner-content">
+                    <i class="bi bi-geo-alt-fill banner-icon"></i>
+                    <h3 id="display-title">Selecciona una comuna para comenzar</h3>
+                    <p class="banner-text">Al hacer clic en una comuna, verás la lista de scooters la ubicación y el estado.</p>
+                </div>
+            </div>
             <div id="scooter-list-content">
-                <p class="text-secondary">Al hacer clic en una comuna, verás la lista de scooters disponibles.</p>
             </div>
         </div>
     </div>
