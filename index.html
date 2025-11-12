@@ -15,7 +15,7 @@
 </head>
 <body>
  <main id="inicio"></main>
-    <nav class="navbar navbar-expand-lg p-3 bg-secondary navbar-style fixed-top">
+    <nav class="navbar navbar-expand-xl p-3 bg-secondary navbar-style fixed-top">
  <div class="container-fluid">
     <a class="navbar-brand" href="#"><img src = "img/voltzeeplogo.png"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,24 +42,47 @@
     </div>
   </div>
 </nav>
-
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="img/producto.png" class="d-block w-100" alt="Quienes somos">
-    </div>
-  </div>
-  
  <!--Se agregó el botón hacia scooters-->
 <div class="scooter-promo-banner">
     <div class="promo-content">
-        <h2 class="text-light">¡Impulsa tu día!</h2>
-        <img src="img/volzeep-scooter.png">
+        <h1 class="text-light">¡Impulsa tu día!</h1>
         <a href="scooters.html" class="btn btn-primary btn-lg custom-promo-btn">
             Ver scooters <i class="bi bi-arrow-right"></i>
         </a>
     </div>
 </div>
 
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/producto.png" class="d-block w-100" alt="Quienes somos">
+      <div class="carousel-caption">
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="img/producto2.png" class="d-block w-100" alt="El producto">
+    </div>
+    <div class="carousel-item">
+      <img src="img/producto3.png" class="d-block w-100" alt="Nuestro objetivo">
+    </div>
+  </div>
+  
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+  
 <div class="feedback-section">
     <div class="feedback-container">
         <h2>Déjanos tu Feedback</h2>

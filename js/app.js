@@ -115,7 +115,7 @@ function crearTarjetasScooter (scooter, comunaNombreTitulo){
 
         <div class="info-estado"> 
             <div class="estado-bateria">
-                <div lass="estado-scooter">
+                <div class="estado-scooter">
                     <p class="status ${statusClass}">${scooter.status}</p>
                 </div>
                 <div class="bateria-scooter">

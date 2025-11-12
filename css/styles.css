@@ -2,28 +2,170 @@ body {
     background-color: rgb(31, 31, 31);
 }
 
+.navbar-style.fixed-top {
+    background: linear-gradient(135deg, rgba(30, 30, 40, 0.98) 0%, rgba(20, 25, 35, 0.98) 100%) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 123, 255, 0.2), 0 2px 10px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid rgba(0, 123, 255, 0.3);
+    z-index: 1000 !important;
+    overflow: hidden;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.navbar-style.fixed-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #007bff 0%, #00d4ff 50%, #007bff 100%);
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+    z-index: 1;
+}
+
 .navbar-style .navbar-brand,
 .navbar-style .nav-link {
     color: white !important; 
     font-size: 30px !important;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.navbar-style .nav-link {
+    padding: 8px 20px !important;
+    margin: 0 5px;
+    border-radius: 8px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-style .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.navbar-style .nav-link:hover {
+    color: #4da6ff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 0 10px rgba(77, 166, 255, 0.6);
+}
+
+.navbar-style .nav-link:hover::before {
+    opacity: 1;
+}
+
+.navbar-style .nav-link.active {
+    color: #4da6ff !important;
+    text-shadow: 0 0 10px rgba(77, 166, 255, 0.6);
 }
 
 .navbar{
-    background-color: rgb(31, 31, 31) !important;
+    background-color: transparent !important;
     padding: 8px !important;
 }
 
 .navbar img{
     width: 15vh;
     height: 15vh;
+    filter: drop-shadow(0 2px 8px rgba(0, 123, 255, 0.3));
+    transition: filter 0.3s ease;
+}
+
+.navbar img:hover {
+    filter: drop-shadow(0 4px 12px rgba(0, 123, 255, 0.5));
+}
+
+/* Responsive para navbar en móviles */
+@media (max-width: 768px) {
+    .navbar img {
+        width: 50px;
+        height: 50px;
+        max-width: 50px;
+        max-height: 50px;
+    }
+    
+    .navbar-style .navbar-brand,
+    .navbar-style .nav-link {
+        font-size: 18px !important;
+    }
+    
+    .navbar-style .nav-link {
+        padding: 6px 10px !important;
+        margin: 0 2px;
+    }
+    
+    .navbar {
+        padding: 5px 10px !important;
+    }
+    
+    .navbar-style.fixed-top {
+        padding: 8px 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar img {
+        width: 40px;
+        height: 40px;
+        max-width: 40px;
+        max-height: 40px;
+    }
+    
+    .navbar-style .navbar-brand,
+    .navbar-style .nav-link {
+        font-size: 16px !important;
+    }
+    
+    .navbar-style .nav-link {
+        padding: 5px 8px !important;
+        margin: 0;
+    }
+    
+    .navbar {
+        padding: 4px 8px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .navbar img {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .navbar-style .navbar-brand,
+    .navbar-style .nav-link {
+        font-size: 14px !important;
+    }
 }
 
 .navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.5) !important;
+    border-color: rgba(0, 123, 255, 0.5) !important;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover {
+    border-color: rgba(0, 123, 255, 0.8) !important;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
 }
 
 .navbar-toggler:focus {
-    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.4) !important;
 }
 
 .navbar-toggler-icon {
@@ -32,12 +174,64 @@ body {
 
 .carousel-item{
     margin-top: 5vh;
-    height: 97vh;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    overflow: hidden;
 }
 
 .carousel-item img{
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    height: 120%;
+    object-position: bottom;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Responsive para carousel en móviles */
+@media (max-width: 768px) {
+    .carousel-item {
+        margin-top: 0;
+        height: 100vh;
+        min-height: 100vh;
+        overflow: hidden;
+    }
+    
+    .carousel-item img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        image-rendering: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-item {
+        height: 100vh;
+        min-height: 100vh;
+        overflow: hidden;
+    }
+    
+    .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        image-rendering: auto;
+    }
 }
 
 .box-boton-scooter {
@@ -245,6 +439,101 @@ button#btnEnviar:hover {
         width: 45%;
         max-width: none;
         margin: 0;
+    }
+}
+
+/* Responsive para feedback section en móviles */
+@media (max-width: 768px) {
+    .feedback-section {
+        padding: 40px 4%;
+        gap: 25px;
+        min-height: auto;
+    }
+    
+    .feedback-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 25px 20px;
+    }
+    
+    .feedback-container h2 {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+    }
+    
+    .reviews-container {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .reviews-container h3 {
+        font-size: 1.6em;
+    }
+}
+
+@media (max-width: 480px) {
+    .feedback-section {
+        padding: 30px 3%;
+        gap: 20px;
+    }
+    
+    .feedback-container {
+        width: 100%;
+        padding: 20px 15px;
+    }
+    
+    .feedback-container h2 {
+        font-size: 1.4em;
+        margin-bottom: 18px;
+    }
+    
+    .form-group label {
+        font-size: 0.95em;
+    }
+    
+    .feedback-form input[type="text"],
+    textarea#feedbackMessage {
+        font-size: 0.9em;
+        padding: 10px 12px;
+    }
+    
+    button#btnEnviar {
+        padding: 10px 20px;
+        font-size: 0.95em;
+        width: 100%;
+        align-self: stretch;
+    }
+    
+    .reviews-container {
+        width: 100%;
+    }
+    
+    .reviews-container h3 {
+        font-size: 1.4em;
+    }
+    
+    .review-list {
+        padding: 10px;
+        max-height: 280px;
+    }
+}
+
+@media (max-width: 360px) {
+    .feedback-section {
+        padding: 25px 2%;
+        gap: 15px;
+    }
+    
+    .feedback-container {
+        padding: 15px 12px;
+    }
+    
+    .feedback-container h2 {
+        font-size: 1.3em;
+    }
+    
+    .reviews-container h3 {
+        font-size: 1.3em;
     }
 }
 /* Estilos para la página scooters.html */
@@ -612,6 +901,13 @@ body.scooters-page::before {
     font-size: 12px;
 }
 
+.estado-bateria {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
 .estado-scooter,
 .bateria-scooter {
     width: 100%; 
@@ -687,118 +983,161 @@ body.scooters-page::before {
         width: 100%;
         max-width: 100%;
         min-height: 200px;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
     
     .scooter-img-container {
         width: 20%;
-        min-width: 120px;
+        min-width: 100px;
         height: 200px;
         padding: 10px;
     }
     
     .info-vertical {
         width: 20%;
-        min-width: 120px;
+        min-width: 100px;
         padding: 10px;
         flex-direction: column;
         justify-content: space-between;
+        border-bottom: none;
     }
     
     .num-serie {
-        font-size: 1.2em;
+        font-size: 1.1em;
         margin-bottom: 20px;
         margin-top: 5px;
     }
     
     .reporte {
         width: 100%;
-        padding: 10px;
+        padding: 0;
         padding-bottom: 10px;
     }
     
     .reporte .btn-reportar {
-        padding: 8px 15px;
-        font-size: 0.9em;
+        padding: 8px 12px;
+        font-size: 0.85em;
+        width: 100%;
     }
     
     .info-estado {
-        width: 20%;
-        min-width: 100px;
+        width: 25%;
+        min-width: 90px;
         padding: 15px 10px;
-        font-size: 10px;
+        border-right: 1px solid #333;
+        border-bottom: none;
+    }
+    
+    .info-estado .estado-bateria {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
     }
     
     .estado-scooter,
     .bateria-scooter {
         width: 100%;
-        padding: 8px 5px;
+        padding: 6px 4px;
         font-size: 10px;
     }
     
     .ubicacion-scooter {
-        width: 40%;
-        min-width: 150px;
+        width: 35%;
+        min-width: 140px;
         height: 200px;
         padding: 10px;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .ubicacion-scooter iframe {
-        height: 100%;
-        min-height: 180px;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 180px !important;
+        display: block !important;
+        visibility: visible !important;
     }
 }
 
 @media (max-width: 480px) {
     .scooter-info-card {
         min-height: 180px;
+        flex-direction: row;
+        flex-wrap: nowrap;
     }
     
     .scooter-img-container {
-        width: 25%;
-        min-width: 100px;
+        width: 18%;
+        min-width: 80px;
         height: 180px;
         padding: 8px;
     }
     
     .info-vertical {
-        width: 25%;
-        min-width: 100px;
+        width: 22%;
+        min-width: 90px;
         padding: 8px;
+        flex-direction: column;
+        justify-content: space-between;
     }
     
     .num-serie {
         font-size: 1em;
         margin-bottom: 15px;
+        margin-top: 5px;
+    }
+    
+    .reporte {
+        width: 100%;
+        padding: 0;
+        padding-bottom: 5px;
+    }
+    
+    .reporte .btn-reportar {
+        width: 100%;
+        padding: 6px 10px;
+        font-size: 0.8em;
     }
     
     .info-estado {
         width: 25%;
-        min-width: 90px;
+        min-width: 80px;
         padding: 10px 8px;
-        font-size: 9px;
+        border-right: 1px solid #333;
+    }
+    
+    .info-estado .estado-bateria {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        width: 100%;
     }
     
     .estado-scooter,
     .bateria-scooter {
-        padding: 6px 4px;
+        width: 100%;
+        padding: 5px 3px;
         font-size: 9px;
     }
     
     .ubicacion-scooter {
-        width: 25%;
+        width: 35%;
         min-width: 120px;
         height: 180px;
         padding: 8px;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .ubicacion-scooter iframe {
-        min-height: 160px;
-    }
-    
-    .reporte .btn-reportar {
-        padding: 6px 12px;
-        font-size: 0.85em;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 160px !important;
+        display: block !important;
+        visibility: visible !important;
     }
 }
 
@@ -864,19 +1203,29 @@ body.scooters-page::before {
     #scooterModal {
         width: 95%; 
         padding: 15px;
-        max-height: 85vh; 
+        max-height: 90vh; 
+        overflow-y: auto;
+        overflow-x: auto;
     }
     
     #scooterModal h2 {
         font-size: 1.5em;
+        margin-bottom: 15px;
     }
     
     #contenedor-tarjetas {
-        max-height: 70vh;
+        max-height: none;
+        overflow-y: visible;
+        overflow-x: visible;
+    }
+    
+    .scooter-info-card {
+        overflow-x: visible;
     }
     
     .footer-modal {
         text-align: center;
+        padding-top: 15px;
     }
     
     .footer-modal button {
@@ -985,6 +1334,10 @@ label {
 }
 
 /*footer*/
+footer p.text-light.fs-4 {
+    color: #007bff !important;
+}
+
 @media (max-width: 710px) {
 .row {
     flex-direction: column;
@@ -1009,7 +1362,7 @@ width: 100%;
 
 /* Estilos para la página informacion.html */
 body.informacion-page {
-    background-image: url('../img/fondo.png');
+    background-image: url('../img/grupo.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -1019,6 +1372,28 @@ body.informacion-page {
 }
 
 body.informacion-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(20, 30, 50, 0.8) 100%);
+    z-index: -1;
+}
+
+/* Estilos para la página finanzas.html */
+body.finanzas-page {
+    background-image: url('../img/finanzas.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+}
+
+body.finanzas-page::before {
     content: '';
     position: fixed;
     top: 0;
@@ -1149,6 +1524,10 @@ body.informacion-page::before {
     body.informacion-page {
         background-attachment: scroll;
     }
+    
+    body.contacto-page {
+        background-attachment: scroll;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1165,7 +1544,48 @@ body.informacion-page::before {
 
 /*ESTILOS CONTACTO*/
 
+body.contacto-page {
+    background-image: url('../img/fondo.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+}
 
+body.contacto-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(20, 30, 50, 0.8) 100%);
+    z-index: -1;
+}
+
+/* Estilos para la página reportes.html */
+body.reportes-page {
+    background-image: url('../img/reportesfondo.png.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+}
+
+body.reportes-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(20, 30, 50, 0.8) 100%);
+    z-index: -1;
+}
 
 :root {
     --color-primary: #0075d4; 
@@ -1189,15 +1609,16 @@ body.informacion-page::before {
 
 .contenedor-ubicacion,
 .contenedor-redes {
-    background-color: var(--color-card-bg); 
+    background-color: rgba(34, 34, 34, 0.85); 
     border-radius: 12px;
     padding: 30px;
     margin-bottom: 30px; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    border: 1px solid #3a3a3a;
+    box-shadow: 0 4px 20px rgba(0, 123, 255, 0.3), 0 10px 30px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 123, 255, 0.3);
     flex: 1; 
     min-width: 300px; 
     margin: 0 15px 30px 15px; 
+    backdrop-filter: blur(5px);
 }
 
 .contenedor-ubicacion iframe{
@@ -1283,42 +1704,37 @@ body.informacion-page::before {
 /*banner con el boton hacia los scooters*/
 
 .scooter-promo-banner {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 102vh; 
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.55); 
+    min-height: 62vh;
+    background-image: url('../img/bannerscooters.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column; 
     align-items: center; 
     justify-content: center; 
     text-align: center;
-    padding-top: 90px;
+    padding: 60px 20px;
+    margin-top: 17vh;
 }
 
 .promo-content {
-
     padding: 30px;
     max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
 }
 
-.scooter-promo-banner h2 {
+.scooter-promo-banner h1 {
     color: white; 
     font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 30px; 
+    margin: 0;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
-
-.scooter-promo-banner img {
-    width: 350px; 
-    height: auto;
-    object-fit: contain; 
-    z-index: 12; 
-    margin-bottom: 40px; 
-}
-
 
 .custom-promo-btn {
     background-color: #0676d1; 
@@ -1334,6 +1750,71 @@ body.informacion-page::before {
     border-color: #0676d1; 
 }
 
+/* Responsive para scooter promo banner en móviles */
+@media (max-width: 768px) {
+    .scooter-promo-banner {
+        min-height: 350px;
+        padding: 40px 15px;
+    }
+    
+    .promo-content {
+        padding: 15px;
+        max-width: 100%;
+        width: 100%;
+        gap: 20px;
+    }
+    
+    .scooter-promo-banner h1 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+    
+    .custom-promo-btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+        width: auto;
+        display: inline-block;
+    }
+}
+
+@media (max-width: 480px) {
+    .scooter-promo-banner {
+        min-height: 300px;
+        padding: 30px 10px;
+    }
+    
+    .promo-content {
+        padding: 10px;
+        gap: 15px;
+    }
+    
+    .scooter-promo-banner h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    
+    .custom-promo-btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .scooter-promo-banner {
+        min-height: 250px;
+        padding: 25px 8px;
+    }
+    
+    .scooter-promo-banner h1 {
+        font-size: 1.5rem;
+    }
+    
+    .custom-promo-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
 
 @media (min-width: 835px) {
     .navbar-expand-sm {
@@ -1344,7 +1825,7 @@ body.informacion-page::before {
 
 
 .background-report {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.85) 0%, rgba(45, 45, 45, 0.85) 100%);
     margin: 20px;
     margin-top: 20vh;
     min-height: calc(100vh - 200px);
@@ -1352,6 +1833,7 @@ body.informacion-page::before {
     border-radius: 16px;
     padding: 180px 40px 40px 40px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
 }
 
 .report-info {
@@ -1522,6 +2004,10 @@ body.informacion-page::before {
 
 /* Responsive para reportes */
 @media (max-width: 768px) {
+    body.reportes-page {
+        background-attachment: scroll;
+    }
+    
     .background-report {
         margin: 10px;
         padding: 160px 20px 30px 20px;
