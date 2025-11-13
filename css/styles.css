@@ -2092,59 +2092,152 @@ body.reportes-page::before {
     
     .background-report {
         margin: 10px;
-        padding: 160px 20px 30px 20px;
+        padding: 140px 15px 20px 15px;
         border-radius: 12px;
+        margin-top: 15vh;
+        min-height: calc(100vh - 150px);
     }
 
     .report-info h1 {
-        font-size: 2.2rem;
-        flex-direction: column;
+        font-size: 2rem;
+        flex-direction: row;
         gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .report-info h1 i {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .report-info p {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .contenedor-tarjetas-report {
-        padding: 15px;
+        padding: 10px;
+        max-width: 100%;
     }
 
     .contenedor-tarjetas-report .review-list {
-        padding: 15px;
-        gap: 15px;
-        max-height: 55vh;
-    }
-
-    .contenedor-tarjetas-report .review-block {
-        padding: 15px 18px;
-    }
-
-    .contenedor-tarjetas-report .review-block .review-meta {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-    }
-
-    .contenedor-tarjetas-report .review-block .review-date {
-        margin-left: 0;
-    }
-
-    .contenedor-tarjetas-report .review-block .review-text {
-        font-size: 0.95em;
-    }
-}
-
-@media (max-width: 480px) {
-    .report-info h1 {
-        font-size: 1.8rem;
+        padding: 10px;
+        gap: 12px;
+        max-height: calc(100vh - 350px);
+        min-height: 300px;
     }
 
     .contenedor-tarjetas-report .review-block {
         padding: 12px 15px;
+        min-width: 0;
+    }
+
+    .contenedor-tarjetas-report .review-block .review-meta {
+        flex-direction: row;
+        align-items: center;
+        gap: 6px;
+        flex-wrap: wrap;
+        font-size: 0.85em;
+    }
+
+    .contenedor-tarjetas-report .review-block .review-meta strong:first-child {
+        font-size: 0.95em;
+    }
+
+    .contenedor-tarjetas-report .review-block .review-date {
+        margin-left: auto;
+        font-size: 0.8em;
+        padding: 3px 8px;
+    }
+
+    .contenedor-tarjetas-report .review-block .review-text {
+        font-size: 0.9em;
+        line-height: 1.5;
+        padding-left: 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    .background-report {
+        margin: 8px;
+        padding: 120px 10px 15px 10px;
+        margin-top: 12vh;
+    }
+
+    .report-info h1 {
+        font-size: 1.6rem;
+        gap: 8px;
+    }
+
+    .report-info h1 i {
+        font-size: 1.5rem;
+    }
+
+    .report-info p {
+        font-size: 0.85rem;
+    }
+
+    .contenedor-tarjetas-report {
+        padding: 8px;
+    }
+
+    .contenedor-tarjetas-report .review-list {
+        padding: 8px;
+        gap: 10px;
+        max-height: calc(100vh - 320px);
+    }
+
+    .contenedor-tarjetas-report .review-block {
+        padding: 10px 12px;
+    }
+
+    .contenedor-tarjetas-report .review-block .review-meta {
+        font-size: 0.8em;
+        gap: 5px;
+    }
+
+    .contenedor-tarjetas-report .review-block .review-meta strong:first-child {
+        font-size: 0.9em;
+    }
+
+    .contenedor-tarjetas-report .review-block .review-date {
+        font-size: 0.75em;
+        padding: 2px 6px;
+    }
+
+    .contenedor-tarjetas-report .review-block .review-text {
+        font-size: 0.85em;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 360px) {
+    .background-report {
+        padding: 110px 8px 12px 8px;
+        margin: 5px;
+    }
+
+    .report-info h1 {
+        font-size: 1.4rem;
+    }
+
+    .report-info p {
+        font-size: 0.8rem;
+    }
+
+    .contenedor-tarjetas-report .review-list {
+        max-height: calc(100vh - 300px);
+        padding: 6px;
+    }
+
+    .contenedor-tarjetas-report .review-block {
+        padding: 8px 10px;
+    }
+
+    .contenedor-tarjetas-report .review-block .review-meta {
+        font-size: 0.75em;
+    }
+
+    .contenedor-tarjetas-report .review-block .review-text {
+        font-size: 0.8em;
     }
 }
