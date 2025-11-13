@@ -2,13 +2,20 @@ const formulario = document.getElementById('formulario');
 
 formulario.addEventListener('submit', (e)=> {
     e.preventDefault();
-    const user = document.getElementById('userName').value.trim();
+    let user = document.getElementById('userName').value.trim();
     const comentario = document.getElementById('feedbackMessage').value;
-
+     if(comentario !== ''){
+        if(user.value === ''){
+            user = "Anónimo";
+        }
         let feedbackObject = {
             nombreUsuario: user,
             comentario: comentario
         }
+     }else{
+        alert("Debes enviar un comentario!");
+     }
+        
     feedbackEnviar(feedbackObject);
     formulario.reset();
 })
