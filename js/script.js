@@ -5,19 +5,18 @@ formulario.addEventListener('submit', (e)=> {
     let user = document.getElementById('userName').value.trim();
     const comentario = document.getElementById('feedbackMessage').value;
      if(comentario !== ''){
-        if(user.value === ''){
+        if(user === ''){
             user = "Anónimo";
         }
         let feedbackObject = {
             nombreUsuario: user,
             comentario: comentario
         }
+        feedbackEnviar(feedbackObject);
+        formulario.reset();
      }else{
         alert("Debes enviar un comentario!");
      }
-        
-    feedbackEnviar(feedbackObject);
-    formulario.reset();
 })
 
 
