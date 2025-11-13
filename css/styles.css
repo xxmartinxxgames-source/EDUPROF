@@ -1621,12 +1621,24 @@ body.reportes-page::before {
     backdrop-filter: blur(5px);
 }
 
-.contenedor-ubicacion iframe{
+/* Contenedor responsivo para el iframe */
+.iframe-container {
+    position: relative;
     width: 100%;
-    max-width: 600px;
-    height: 450px;
-    align-items: center;
+    padding-bottom: 75%; /* Ratio 4:3 para el mapa */
+    height: 0;
+    overflow: hidden;
     border-radius: 8px;
+    margin-top: 15px;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 
 .contenedor-ubicacion h2 {
@@ -1688,13 +1700,9 @@ body.reportes-page::before {
         margin-right: 0;
         padding: 25px;
     }
-    
-    .contenedor-ubicacion iframe {
-        width: 100%;
-        height: 400px;
-    }
 }
 
+/* Media queries para tablets y móviles */
 @media (max-width: 768px) {
     .contenedor-info {
         margin-top: 12vh;
@@ -1708,19 +1716,10 @@ body.reportes-page::before {
         margin-bottom: 20px;
     }
     
-    .contenedor-ubicacion h2 {
-        font-size: 1.6rem;
-        margin-bottom: 15px;
-    }
-    
-    .contenedor-ubicacion iframe {
-        width: 100%;
-        height: 350px;
-    }
-    
+    .contenedor-ubicacion h2,
     .contenedor-redes h1 {
         font-size: 1.6rem;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
     
     .contenedor-redes h2 {
@@ -1728,38 +1727,29 @@ body.reportes-page::before {
         margin-bottom: 12px;
     }
     
-    body.contacto-page {
-        background-attachment: scroll;
+    .iframe-container {
+        padding-bottom: 75%;
     }
 }
 
 @media (max-width: 480px) {
     .contenedor-info {
         margin-top: 10vh;
-        padding: 8px;
+        padding: 5px;
     }
     
     .contenedor-ubicacion,
     .contenedor-redes {
         width: 100%;
         padding: 15px;
-        margin-bottom: 15px;
-        border-radius: 10px;
+        margin: 0 0 15px 0;
+        border-radius: 8px;
     }
     
-    .contenedor-ubicacion h2 {
-        font-size: 1.4rem;
-        margin-bottom: 12px;
-    }
-    
-    .contenedor-ubicacion iframe {
-        width: 100%;
-        height: 300px;
-    }
-    
+    .contenedor-ubicacion h2,
     .contenedor-redes h1 {
         font-size: 1.4rem;
-        margin-bottom: 18px;
+        margin-bottom: 12px;
     }
     
     .contenedor-redes h2 {
@@ -1767,36 +1757,14 @@ body.reportes-page::before {
         margin-bottom: 10px;
         line-height: 1.4;
     }
-}
-
-@media (max-width: 360px) {
-    .contenedor-info {
-        margin-top: 8vh;
-        padding: 5px;
+    
+    .iframe-container {
+        padding-bottom: 75%;
+        margin-top: 10px;
     }
     
-    .contenedor-ubicacion,
-    .contenedor-redes {
-        padding: 12px;
-        margin-bottom: 12px;
-    }
-    
-    .contenedor-ubicacion h2 {
-        font-size: 1.2rem;
-    }
-    
-    .contenedor-ubicacion iframe {
-        height: 250px;
-    }
-    
-    .contenedor-redes h1 {
-        font-size: 1.2rem;
-        margin-bottom: 15px;
-    }
-    
-    .contenedor-redes h2 {
-        font-size: 0.9rem;
-        margin-bottom: 8px;
+    body.contacto-page {
+        background-attachment: scroll;
     }
 }
 
